@@ -92,7 +92,7 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 **5 April — 18 April 2026 (14 hari)**
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
-|---|---|---|:---:|:---:|:---:|:---:|
+|----|------|-------|---------|--------|--------|
 | 1 | AI Object Recognition | 5 Apr | 10 Apr | 6 hari | ✅ |
 | 2 | Real-Time Camera | 7 Apr | 12 Apr | 6 hari | ✅ |
 | 3 | Upload Gambar | 11 Apr | 14 Apr | 4 hari | ✅ |
@@ -101,13 +101,13 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 **Milestone:** Pipeline AI berfungsi end-to-end (Kamera → AI → Suara → UI)
 
----
+<br/>
 
 ### Phase 2: Autentikasi & Database
 **12 April — 2 Mei 2026 (21 hari)**
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
-|---|---|---|:---:|:---:|:---:|:---:|
+|----|------|-------|---------|--------|--------|
 | 6 | Ganti Kamera (Depan/Belakang) | 12 Apr | 15 Apr | 4 hari | ✅ |
 | 7 | Pilihan Suara AI | 14 Apr | 18 Apr | 5 hari | ✅ |
 | 8 | Pengaturan Kecepatan Suara | 16 Apr | 19 Apr | 4 hari | ✅ |
@@ -117,13 +117,13 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 **Milestone:** Database dan autentikasi berfungsi, user bisa daftar dan login
 
----
+<br/>
 
 ### Phase 3: Fitur Belajar Interaktif
 **2 Mei — 16 Mei 2026 (15 hari)**
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
-|---|---|---|:---:|:---:|:---:|:---:|
+|----|------|-------|---------|--------|--------|
 | 12 | Riwayat Discovery | 2 Mei | 6 Mei | 5 hari | ✅ |
 | 13 | Spelling Challenge | 5 Mei | 10 Mei | 6 hari | ✅ |
 | 14 | Quiz Challenge | 8 Mei | 13 Mei | 6 hari | ✅ |
@@ -132,13 +132,13 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 **Milestone:** Semua fitur belajar dan game interaktif berfungsi
 
----
+<br/>
 
 ### Phase 4: Gamifikasi & Kustomisasi
 **16 Mei — 30 Mei 2026 (15 hari)**
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
-|---|---|---|:---:|:---:|:---:|:---:|
+|----|------|-------|---------|--------|--------|
 | 17 | Achievement System | 16 Mei | 21 Mei | 6 hari | ✅ |
 | 18 | Multi-Bahasa | 19 Mei | 24 Mei | 6 hari | ✅ |
 | 19 | 6 Tema Warna | 22 Mei | 26 Mei | 5 hari | ✅ |
@@ -146,25 +146,25 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 **Milestone:** Aplikasi sudah mendukung multi-bahasa dan dapat dikustomisasi
 
----
+<br/>
 
 ### Phase 5: Finalisasi
 **30 Mei — 6 Juni 2026 (8 hari)**
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
-|---|---|---|:---:|:---:|:---:|:---:|
+|----|------|-------|---------|--------|--------|
 | 21 | Pro Membership | 30 Mei | 2 Jun | 4 hari | ✅ |
 | 22 | Responsive Mobile-First | 1 Jun | 4 Jun | 4 hari | ✅ |
 | 23 | Bug Fixes & Optimasi | 3 Jun | 6 Jun | 4 hari | ✅ |
 
 **Milestone:** 🎉 FINAL RELEASE — Semua 22 fitur selesai dan siap digunakan
 
----
+<br/>
 
 ### Ringkasan
 
 | Fase | Periode | Durasi | Jumlah Fitur |
-|---|---|:---:|:---:|
+|------|---------|--------|--------------|
 | Phase 1 — Core AI & Kamera | 5 Apr – 18 Apr 2026 | 14 hari | 5 |
 | Phase 2 — Auth & Database | 12 Apr – 2 Mei 2026 | 21 hari | 6 |
 | Phase 3 — Fitur Belajar | 2 Mei – 16 Mei 2026 | 15 hari | 5 |
