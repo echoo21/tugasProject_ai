@@ -344,16 +344,15 @@ whats-this/
 
 ## 📅 Development Timeline
 
-> **Deadline: 5 April 2026**
-> Total development span: **3 February 2026 — 5 April 2026** (63 days)
+> **Start Date: 5 April 2026 · Final Release: 6 June 2026**
+> Total development span: **5 April 2026 — 6 June 2026** (63 hari)
 
 ### 📊 Gantt Chart Overview
 
 ```
-Feature                                    Feb              Mar              Apr
-                                           2026             2026             2026
-                                           W1 W2 W3 W4      W1 W2 W3 W4      W1
-──────────────────────────────────────────────────────────────────────────────────
+Feature                                       Apr 2026                 May 2026                 Jun 2026
+                                              W1 W2 W3 W4               W1 W2 W3 W4               W1
+─────────────────────────────────────────────────────────────────────────────────────────────────────
  Phase 1: Foundation & Core AI
   1. AI Object Recognition                 ██
   2. Real-Time Camera                       ██
@@ -369,129 +368,129 @@ Feature                                    Feb              Mar              Apr
  10. Profile Management                            ██
 
  Phase 3: Learning Features
- 11. Discovery History                             ██
- 12. Spelling Challenge                              ██
- 13. Quiz Challenge                                   ██
- 14. AI Chat Buddy                                      ██
- 15. Achievement System                                  ██
+ 11. Discovery History                                ██
+ 12. Spelling Challenge                                 ██
+ 13. Quiz Challenge                                      ██
+ 14. AI Chat Buddy                                         ██
+ 15. Achievement System                                     ██
 
  Phase 4: Polish & Customization
- 16. Multi-Language i18n                                   ██
- 17. Theme System                                             ██
- 18. Voice Customization                                        ██
- 19. Camera Switch & Rotation                                     ██
- 20. User Feedback                                                 ██
+ 16. Multi-Language i18n                                      ██
+ 17. Theme System                                                ██
+ 18. Voice Customization                                           ██
+ 19. Camera Switch & Rotation                                       ██
+ 20. User Feedback                                                    ██
 
  Phase 5: Enhancement & Gamification
- 21. Puzzle Game                                                    ██
- 22. Pro Membership                                                   ██
- 23. UI Animations                                                      ██
- 24. Safe Content System                                                 ██
- 25. Bug Fixes & Optimization                                              ██
-──────────────────────────────────────────────────────────────────────────────────
-                                            ↑                                         ↑
-                                       3 Feb 2026                              5 Apr 2026
+ 21. Puzzle Game                                                       ██
+ 22. Pro Membership                                                      ██
+ 23. UI Animations                                                         ██
+ 24. Safe Content System                                                    ██
+ 25. Bug Fixes & Optimization                                               ██
+─────────────────────────────────────────────────────────────────────────────────────────────────────
+                                              ↑                                                               ↑
+                                         5 Apr 2026                                                      6 Jun 2026
 ```
 
 ---
 
 ### 🏗️ Phase 1: Foundation & Core AI
-**3 Feb 2026 — 16 Feb 2026** (14 hari) · Backend & Core Infrastructure
+**5 Apr 2026 — 18 Apr 2026** (14 hari) · Backend & Core Infrastructure
 
 | # | Feature | Start | End | Durasi | Status | Deskripsi |
 |---|---|:---:|:---:|:---:|:---:|---|
-| 1 | **AI Object Recognition** | 3 Feb | 8 Feb | 6 hari | ✅ Selesai | Integrasi VLM dengan model GLM-4V-Plus, prompt engineering ramah anak, parsing respons JSON terstruktur dengan fallback |
-| 2 | **Real-Time Camera** | 5 Feb | 10 Feb | 6 hari | ✅ Selesai | Integrasi kamera WebRTC dengan deteksi kamera depan/belakang, auto-play, loading states |
-| 3 | **Image Upload** | 9 Feb | 12 Feb | 4 hari | ✅ Selesai | File input fallback untuk environment sandbox/terbatas, deteksi kamera otomatis |
-| 4 | **TTS Voice Feedback** | 10 Feb | 14 Feb | 5 hari | ✅ Selesai | Integrasi Z-AI TTS API, streaming audio WAV, auto-play saat identifikasi, kontrol play/stop |
-| 5 | **Responsive UI Layout** | 3 Feb | 16 Feb | 14 hari | ✅ Selesai | Desain responsive mobile-first, maskot animasi, header gradient, navigasi tab |
+| 1 | **AI Object Recognition** | 5 Apr | 10 Apr | 6 hari | ✅ Selesai | Integrasi VLM dengan model GLM-4V-Plus, prompt engineering ramah anak, parsing respons JSON terstruktur dengan fallback |
+| 2 | **Real-Time Camera** | 7 Apr | 12 Apr | 6 hari | ✅ Selesai | Integrasi kamera WebRTC dengan deteksi kamera depan/belakang, auto-play, loading states |
+| 3 | **Image Upload** | 11 Apr | 14 Apr | 4 hari | ✅ Selesai | File input fallback untuk environment sandbox/terbatas, deteksi kamera otomatis |
+| 4 | **TTS Voice Feedback** | 12 Apr | 16 Apr | 5 hari | ✅ Selesai | Integrasi Z-AI TTS API, streaming audio WAV, auto-play saat identifikasi, kontrol play/stop |
+| 5 | **Responsive UI Layout** | 5 Apr | 18 Apr | 14 hari | ✅ Selesai | Desain responsive mobile-first, maskot animasi, header gradient, navigasi tab |
 
-**Milestone 1** 🎯: Core AI pipeline berfungsi end-to-end *(Kamera → VLM → TTS → UI)* — **16 Feb 2026**
+**Milestone 1** 🎯: Core AI pipeline berfungsi end-to-end *(Kamera → VLM → TTS → UI)* — **18 Apr 2026**
 
 ---
 
 ### 🗄️ Phase 2: Data & Authentication
-**10 Feb 2026 — 2 Mar 2026** (21 hari) · Database & User Management
+**12 Apr 2026 — 2 Mei 2026** (21 hari) · Database & User Management
 
 | # | Feature | Start | End | Durasi | Status | Deskripsi |
 |---|---|:---:|:---:|:---:|:---:|---|
-| 6 | **Database Schema** | 10 Feb | 16 Feb | 7 hari | ✅ Selesai | Skema Prisma ORM dengan 5 model (User, HistoryItem, Achievement, Feedback, QuizScore), backend SQLite |
-| 7 | **User Registration** | 17 Feb | 23 Feb | 7 hari | ✅ Selesai | Pendaftaran email + username, hashing password bcrypt, validasi input, pembuatan session cookie |
-| 8 | **User Login** | 20 Feb | 25 Feb | 6 hari | ✅ Selesai | Login email atau username, verifikasi password, restorasi session, penanganan error |
-| 9 | **Guest Mode** | 24 Feb | 28 Feb | 5 hari | ✅ Selesai | Akses langsung tanpa registrasi, history state lokal, prompt upgrade ke akun |
-| 10 | **Profile Management** | 27 Feb | 2 Mar | 4 hari | ✅ Selesai | Update nama tampilan, tema, dan preferensi bahasa dengan persistensi database |
+| 6 | **Database Schema** | 12 Apr | 18 Apr | 7 hari | ✅ Selesai | Skema Prisma ORM dengan 5 model (User, HistoryItem, Achievement, Feedback, QuizScore), backend SQLite |
+| 7 | **User Registration** | 19 Apr | 25 Apr | 7 hari | ✅ Selesai | Pendaftaran email + username, hashing password bcrypt, validasi input, pembuatan session cookie |
+| 8 | **User Login** | 22 Apr | 27 Apr | 6 hari | ✅ Selesai | Login email atau username, verifikasi password, restorasi session, penanganan error |
+| 9 | **Guest Mode** | 26 Apr | 30 Apr | 5 hari | ✅ Selesai | Akses langsung tanpa registrasi, history state lokal, prompt upgrade ke akun |
+| 10 | **Profile Management** | 29 Apr | 2 Mei | 4 hari | ✅ Selesai | Update nama tampilan, tema, dan preferensi bahasa dengan persistensi database |
 
-**Milestone 2** 🎯: Sistem autentikasi & database berfungsi penuh — **2 Mar 2026**
+**Milestone 2** 🎯: Sistem autentikasi & database berfungsi penuh — **2 Mei 2026**
 
 ---
 
 ### 📚 Phase 3: Learning Features
-**2 Mar 2026 — 16 Mar 2026** (15 hari) · Fitur Belajar Interaktif
+**2 Mei 2026 — 16 Mei 2026** (15 hari) · Fitur Belajar Interaktif
 
 | # | Feature | Start | End | Durasi | Status | Deskripsi |
 |---|---|:---:|:---:|:---:|:---:|---|
-| 11 | **Discovery History** | 2 Mar | 6 Mar | 5 hari | ✅ Selesai | Penyimpanan persisten objek teridentifikasi beserta gambar, batas 50 item, fungsi hapus semua |
-| 12 | **Spelling Challenge** | 5 Mar | 9 Mar | 5 hari | ✅ Selesai | Game ejaan pasca-identifikasi, sistem petunjuk, feedback TTS untuk benar/salah, tracking pencapaian |
-| 13 | **Quiz Challenge** | 8 Mar | 13 Mar | 6 hari | ✅ Selesai | Kuis pilihan ganda bergambar dengan 3 opsi acak, tracking skor, unlock pencapaian |
-| 14 | **AI Chat Buddy** | 10 Mar | 16 Mar | 7 hari | ✅ Selesai | AI percakapan multi-turn dengan GLM-4-Flash, respons bahasa-aware, auto-scroll |
-| 15 | **Achievement System** | 13 Mar | 16 Mar | 4 hari | ✅ Selesai | 9 jenis badge dengan upsert idempoten, deteksi milestone scan otomatis (5/10/20), tampilan profil |
+| 11 | **Discovery History** | 2 Mei | 6 Mei | 5 hari | ✅ Selesai | Penyimpanan persisten objek teridentifikasi beserta gambar, batas 50 item, fungsi hapus semua |
+| 12 | **Spelling Challenge** | 5 Mei | 9 Mei | 5 hari | ✅ Selesai | Game ejaan pasca-identifikasi, sistem petunjuk, feedback TTS untuk benar/salah, tracking pencapaian |
+| 13 | **Quiz Challenge** | 8 Mei | 13 Mei | 6 hari | ✅ Selesai | Kuis pilihan ganda bergambar dengan 3 opsi acak, tracking skor, unlock pencapaian |
+| 14 | **AI Chat Buddy** | 10 Mei | 16 Mei | 7 hari | ✅ Selesai | AI percakapan multi-turn dengan GLM-4-Flash, respons bahasa-aware, auto-scroll |
+| 15 | **Achievement System** | 13 Mei | 16 Mei | 4 hari | ✅ Selesai | 9 jenis badge dengan upsert idempoten, deteksi milestone scan otomatis (5/10/20), tampilan profil |
 
-**Milestone 3** 🎯: Semua fitur belajar interaktif berfungsi *(History, Spelling, Quiz, Chat, Achievements)* — **16 Mar 2026**
+**Milestone 3** 🎯: Semua fitur belajar interaktif berfungsi *(History, Spelling, Quiz, Chat, Achievements)* — **16 Mei 2026**
 
 ---
 
 ### 🎨 Phase 4: Polish & Customization
-**16 Mar 2026 — 30 Mar 2026** (15 hari) · Kustomisasi & Pelokalan
+**16 Mei 2026 — 30 Mei 2026** (15 hari) · Kustomisasi & Pelokalan
 
 | # | Feature | Start | End | Durasi | Status | Deskripsi |
 |---|---|:---:|:---:|:---:|:---:|---|
-| 16 | **Multi-Language i18n** | 16 Mar | 20 Mar | 5 hari | ✅ Selesai | Sistem terjemahan lengkap dengan 90+ key dalam 3 bahasa (EN/ID/ZH), interpolasi parameter |
-| 17 | **Theme System** | 18 Mar | 23 Mar | 6 hari | ✅ Selesai | 6 tema gradient (Default, Ocean, Forest, Sunset, Night, Candy) dengan seleksi persisten |
-| 18 | **Voice Customization** | 20 Mar | 25 Mar | 6 hari | ✅ Selesai | 5 opsi suara AI dengan slider kecepatan (0.5x–1.5x), penyimpanan preferensi per pengguna |
-| 19 | **Camera Switch & Rotation** | 23 Mar | 27 Mar | 5 hari | ✅ Selesai | Toggle kamera depan/belakang, rotasi gambar 90° dengan transformasi canvas |
-| 20 | **User Feedback** | 25 Mar | 30 Mar | 6 hari | ✅ Selesai | Rating bintang (1-5) + komentar opsional, auto-unlock pencapaian Helper |
+| 16 | **Multi-Language i18n** | 16 Mei | 20 Mei | 5 hari | ✅ Selesai | Sistem terjemahan lengkap dengan 90+ key dalam 3 bahasa (EN/ID/ZH), interpolasi parameter |
+| 17 | **Theme System** | 18 Mei | 23 Mei | 6 hari | ✅ Selesai | 6 tema gradient (Default, Ocean, Forest, Sunset, Night, Candy) dengan seleksi persisten |
+| 18 | **Voice Customization** | 20 Mei | 25 Mei | 6 hari | ✅ Selesai | 5 opsi suara AI dengan slider kecepatan (0.5x–1.5x), penyimpanan preferensi per pengguna |
+| 19 | **Camera Switch & Rotation** | 23 Mei | 27 Mei | 5 hari | ✅ Selesai | Toggle kamera depan/belakang, rotasi gambar 90° dengan transformasi canvas |
+| 20 | **User Feedback** | 25 Mei | 30 Mei | 6 hari | ✅ Selesai | Rating bintang (1-5) + komentar opsional, auto-unlock pencapaian Helper |
 
-**Milestone 4** 🎯: Aplikasi sudah fully-localized & customizable — **30 Mar 2026**
+**Milestone 4** 🎯: Aplikasi sudah fully-localized & customizable — **30 Mei 2026**
 
 ---
 
 ### 🚀 Phase 5: Enhancement & Gamification
-**23 Mar 2026 — 5 Apr 2026** (14 hari) · Finalisasi & Peluncuran
+**23 Mei 2026 — 6 Jun 2026** (14 hari) · Finalisasi & Peluncuran
 
 | # | Feature | Start | End | Durasi | Status | Deskripsi |
 |---|---|:---:|:---:|:---:|:---:|---|
-| 21 | **Puzzle Game** | 27 Mar | 31 Mar | 5 hari | ✅ Selesai | Pemotongan gambar 2×2, drag-and-drop penempatan potongan, deteksi penyelesaian, feedback TTS |
-| 22 | **Pro Membership** | 30 Mar | 2 Apr | 4 hari | ✅ Selesai | Alur upgrade dengan loading state, tampilan badge, unlock fitur tambahan |
-| 23 | **UI Animations** | 1 Apr | 3 Apr | 3 hari | ✅ Selesai | Animasi Framer Motion: maskot melayang, logo bergoyang, loading spinner, transisi auth |
-| 24 | **Safe Content System** | 2 Apr | 4 Apr | 3 hari | ✅ Selesai | Prompt AI ramah anak (level 4 tahun), batas kata, nada hangat/mendorong |
-| 25 | **Bug Fixes & Optimization** | 3 Apr | 5 Apr | 3 hari | ✅ Selesai | Pencegahan infinite loop (identifyingRef), ekstraksi array aman, perbaikan scroll area, error handling API |
+| 21 | **Puzzle Game** | 27 Mei | 31 Mei | 5 hari | ✅ Selesai | Pemotongan gambar 2×2, drag-and-drop penempatan potongan, deteksi penyelesaian, feedback TTS |
+| 22 | **Pro Membership** | 30 Mei | 2 Jun | 4 hari | ✅ Selesai | Alur upgrade dengan loading state, tampilan badge, unlock fitur tambahan |
+| 23 | **UI Animations** | 1 Jun | 3 Jun | 3 hari | ✅ Selesai | Animasi Framer Motion: maskot melayang, logo bergoyang, loading spinner, transisi auth |
+| 24 | **Safe Content System** | 2 Jun | 4 Jun | 3 hari | ✅ Selesai | Prompt AI ramah anak (level 4 tahun), batas kata, nada hangat/mendorong |
+| 25 | **Bug Fixes & Optimization** | 3 Jun | 6 Jun | 4 hari | ✅ Selesai | Pencegahan infinite loop (identifyingRef), ekstraksi array aman, perbaikan scroll area, error handling API |
 
-**Milestone 5** 🎯 **FINAL RELEASE** — Semua 25 fitur selesai & siap peluncuran — **5 Apr 2026** 🎉
+**Milestone 5** 🎯 **FINAL RELEASE** — Semua 25 fitur selesai & siap peluncuran — **6 Jun 2026** 🎉
 
 ---
 
 ### 📈 Timeline Summary
 
 ```
-  Feb 2026        Mar 2026                   Apr 2026
-  ┌───────┐  ┌────────────────────────┐  ┌───────┐
-  │  P1   │  │    P2    │    P3    │P4 │  │  P5   │
-  │ █████ │  │ ████████ │ ████████ │██ │  │ █████ │
-  └───────┘  └────────────────────────┘  └───────┘
-  3 Feb      10 Feb    2 Mar    16 Mar   30 Mar   5 Apr
-    │           │         │         │        │        │
-    ▼           ▼         ▼         ▼        ▼        ▼
-  [Start]    [DB+Auth] [Learn]   [i18n]  [Polish] [RELEASE]
+  Apr 2026           May 2026                       Jun 2026
+  ┌───────┐    ┌──────────────────────────┐     ┌───────┐
+  │  P1   │    │    P2    │    P3    │ P4  │     │  P5   │
+  │ █████ │    │ ████████ │ ████████ │ ██  │     │ █████ │
+  └───────┘    └──────────────────────────┘     └───────┘
+  5 Apr        12 Apr    2 May    16 May  30 May       6 Jun
+    │             │         │         │       │           │
+    ▼             ▼         ▼         ▼       ▼           ▼
+  [Start]     [DB+Auth] [Learn]   [i18n] [Polish]   [RELEASE]
 ```
 
 | Fase | Periode | Durasi | Fitur | Milestone |
 |---|---|:---:|:---:|---|
-| **Phase 1** | 3 Feb — 16 Feb 2026 | 14 hari | 5 fitur | Core AI pipeline berfungsi |
-| **Phase 2** | 10 Feb — 2 Mar 2026 | 21 hari | 5 fitur | Autentikasi & database siap |
-| **Phase 3** | 2 Mar — 16 Mar 2026 | 15 hari | 5 fitur | Fitur belajar interaktif lengkap |
-| **Phase 4** | 16 Mar — 30 Mar 2026 | 15 hari | 5 fitur | Pelokalan & kustomisasi selesai |
-| **Phase 5** | 23 Mar — 5 Apr 2026 | 14 hari | 5 fitur | **🚀 FINAL RELEASE** |
-| **Total** | **3 Feb — 5 Apr 2026** | **63 hari** | **25 fitur** | **5 milestone** |
+| **Phase 1** | 5 Apr — 18 Apr 2026 | 14 hari | 5 fitur | Core AI pipeline berfungsi |
+| **Phase 2** | 12 Apr — 2 Mei 2026 | 21 hari | 5 fitur | Autentikasi & database siap |
+| **Phase 3** | 2 Mei — 16 Mei 2026 | 15 hari | 5 fitur | Fitur belajar interaktif lengkap |
+| **Phase 4** | 16 Mei — 30 Mei 2026 | 15 hari | 5 fitur | Pelokalan & kustomisasi selesai |
+| **Phase 5** | 23 Mei — 6 Jun 2026 | 14 hari | 5 fitur | **🚀 FINAL RELEASE** |
+| **Total** | **5 Apr — 6 Jun 2026** | **63 hari** | **25 fitur** | **5 milestone** |
 
 ---
 
@@ -508,9 +507,9 @@ Feature                                    Feb              Mar              Apr
 | **Achievement Badges** | 9 |
 | **Translation Keys** | 90+ |
 | **Frontend Lines** | ~1,200+ |
-| **Development Start** | 3 February 2026 |
-| **Development End** | 5 April 2026 |
-| **Total Duration** | 63 days (~9 weeks) |
+| **Development Start** | 5 April 2026 |
+| **Development End** | 6 June 2026 |
+| **Total Duration** | 63 hari (~9 minggu) |
 | **Development Phases** | 5 |
 | **Milestones** | 5 |
 
