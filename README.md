@@ -4,6 +4,11 @@
 
 ---
 
+- Richie Hujaya (241110258)
+- Anthony Louis (241110249)
+- Trevan Edgard (241110265)
+- Suryanata Yaptanto (241111143)
+
 ## 1. Ide Project
 
 **"What's This?"** adalah aplikasi web edukasi interaktif untuk anak usia 3–8 tahun yang memanfaatkan teknologi AI (Computer Vision & Text-to-Speech) untuk membantu anak-anak belajar mengenali objek-objek di sekitar mereka.
