@@ -1,565 +1,427 @@
-<div align="center">
+# 🔍 What's This? - Aplikasi Belajar Anak dengan AI
 
-# 🔍 What's This?
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?style=flat-square&logo=tailwindcss)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)
 
-### *AI-Powered Object Learning for Kids*
-
-**A fun, interactive educational web application that helps children (ages 3-8) learn about the world through AI-powered image recognition, voice feedback, mini-games, and multilingual support.**
-
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-Animations-FF0055?style=flat-square&logo=framer)](https://www.framer.com/motion/)
-[![Z-AI SDK](https://img.shields.io/badge/Z--AI--SDK-Vision_%2B_TTS-6366F1?style=flat-square)]()
-
-[🚀 Live Demo](#) &nbsp;·&nbsp; [📖 Documentation](#features) &nbsp;·&nbsp; [🛠 Tech Stack](#tech-stack) &nbsp;·&nbsp; [📅 Timeline](#development-timeline)
-
-</div>
+> **Tugas Mata Kuliah Pemrograman Web Lanjut - Semester 4**
+>
+> Nama: [Nama Mahasiswa] · NIM: [XXXXXXXXXXXX] · Kelas: [A/B/C]
 
 ---
 
-## 📖 Table of Contents
+## 📝 Deskripsi Project
 
-- [💡 Project Idea](#-project-idea)
-- [🎯 Target Audience](#-target-audience)
-- [✨ Key Features (20+)](#-key-features)
-- [🛠 Tech Stack](#-tech-stack)
-- [🏗 Architecture](#-architecture)
-- [⚙️ Setup & Installation](#-setup--installation)
-- [📂 Project Structure](#-project-structure)
-- [📅 Development Timeline](#-development-timeline)
-- [📱 Screenshots](#-screenshots)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+Jadi gini, aplikasi ini namanya **"What's This?"** basically aplikasi buat anak-anak umur 3-8 tahun buat belajar mengenali objek di sekitar mereka pake AI. Idenya tuh simpel:
 
----
+**Anak arahin kamera ke suatu benda → AI kenalin benda nya → App jelasin pake bahasa anak-anak → Ada suara yang bacain → Ada game buat latihan**
 
-## 💡 Project Idea
+Kenapa bikin ini? Karena anak kecil itu suka nanya "ini apa?" terus, tapi buku sama flashcard kan terbatas. Kalau pake AI, mereka bisa belajar dari objek apa aja secara real-time. Jadi lebih interaktif gitu.
 
-**"What's This?"** (*"Ini Apa?"* / *"这是什么？"*) is an interactive educational platform designed to transform everyday objects into learning opportunities for young children. The core concept is simple yet powerful:
-
-> **A child points their camera at any object → AI identifies it → The app explains it in a fun, age-appropriate way → Voice reads it aloud → Interactive games reinforce learning.**
-
-### The Problem
-
-Children are naturally curious about the world around them. They constantly ask *"What's this?"* about objects they encounter. Traditional learning methods (books, flashcards) are limited, static, and can't respond to a child's immediate curiosity in real-time.
-
-### The Solution
-
-This app leverages **AI Vision (VLM)** and **Text-to-Speech (TTS)** technology to create an infinite, dynamic learning experience:
-
-1. **Capture** — Children take a photo using the device camera or upload an image
-2. **Identify** — AI Vision model (GLM-4V-Plus) analyzes and identifies the object
-3. **Explain** — AI generates a child-friendly description with fun facts
-4. **Listen** — TTS reads the explanation aloud in a friendly voice
-5. **Play** — Mini-games (spelling, quiz, puzzle) reinforce what was learned
-6. **Chat** — An AI buddy answers any follow-up questions
-7. **Track** — Achievements and history motivate continued exploration
-
-### Design Philosophy
-
-| Principle | Implementation |
-|---|---|
-| 🧒 **Child-First Design** | Large touch targets, vibrant colors, simple navigation |
-| 🌍 **Multilingual** | Full UI & AI response support for 3 languages |
-| 🔒 **Safe & Private** | Cookie-based auth, no third-party tracking |
-| 🎮 **Gamification** | 9 achievement badges, quiz scores, progress tracking |
-| 📱 **Mobile-First** | Responsive design optimized for phones and tablets |
-| ♿ **Accessible** | ARIA labels, semantic HTML, keyboard navigation |
+### Target User
+- Anak-anak umur 3-8 tahun (primary)
+- Orang tua / guru yang nyari alat belajar interaktif (secondary)
+- Support 3 bahasa: English 🇬🇧, Indonesia 🇮🇩, Mandarin 🇨🇳
 
 ---
 
-## 🎯 Target Audience
+## ✨ Fitur-Fitur (25 Fitur)
 
-- **Primary**: Children aged 3–8 years old
-- **Secondary**: Parents and educators seeking interactive learning tools
-- **Languages**: English, Bahasa Indonesia, 简体中文 (Simplified Chinese)
+### 🔥 Fitur Utama
 
----
+**1. AI Object Recognition 📸**
+Buat ngenalin objek dari foto. Pake model GLM-4V-Plus dari Z-AI SDK. Jadi nanti AI bakal balikin data objeknya berupa nama, emoji, deskripsi, fakta menarik, dan kategorinya. Responsnya otomatis sesuai bahasa yang dipilih user.
 
-## ✨ Key Features
+**2. Kamera Real-Time 📷**
+Pake WebRTC buat akses kamera device. Bisa pake kamera depan atau belakang. Otomatis detect device yang ada, kalau di HP prioritas kamera belakang soalnya lebih gampang buat foto benda.
 
-### 📸 1. AI-Powered Object Recognition
-Uses the **GLM-4V-Plus** Vision Language Model via `z-ai-web-dev-sdk` to identify objects in real-time. The AI returns a structured response containing the object's name, an emoji, a child-friendly description, a fun fact, and a category — all generated in the user's selected language.
+**3. Upload Gambar 📤**
+Kalau kameranya nggak bisa diakses (misal di laptop yang nggak ada webcam atau di sandbox), user bisa upload gambar dari gallery. App otomatis detect dan kasih opsi upload kalau kamera unavailable.
 
-### 📷 2. Real-Time Camera Integration
-Built on **WebRTC** (`navigator.mediaDevices.getUserMedia`), the camera viewfinder supports both front and rear cameras with automatic device detection. On desktop, it defaults to the first available webcam; on mobile, it prioritizes the rear camera for easier object scanning.
+**4. Ganti Kamera (Depan/Belakang) 🔄**
+Tombol buat toggle kamera depan sama belakang. Di backend pake `enumerateDevices()` buat detect semua video device yang available.
 
-### 📤 3. Image Upload Fallback
-In sandbox or restricted environments where camera access is unavailable, users can upload images from their device gallery. The app gracefully detects camera unavailability and presents the upload option automatically.
+**5. Rotate Gambar 🔄**
+Pas foto atau upload, gambarnya bisa di-rotate 90 derajat pake canvas transformation. Jadi kalau fotonya miring bisa diperbaiki sebelum dikirim ke AI.
 
-### 🔄 4. Camera Switch (Front/Rear)
-A one-tap button to toggle between front-facing and rear-facing cameras, intelligently enumerating available video devices and selecting the appropriate one.
+**6. Text-to-Speech 🔊**
+Tiap objek yang ke-identifikasi otomatis dibacain pake suara AI. Defaultnya pake suara "chuichui" yang lucu. Bisa di-play ulang, pause, atau stop.
 
-### 🔄 5. Image Rotation Tool
-After capturing or uploading an image, users can rotate it in 90° increments using a canvas-based transformation engine, ensuring the AI receives the correctly oriented image for identification.
+**7. Pilih Suara (5 Voice) 🎙️**
+Ada 5 pilihan suara AI yang bisa dipilih di settings:
+- 🎈 Chuichui - Lucu dan ceria (default)
+- 🌸 Tongtong - Lembut
+- 🎩 Jam - Berat dan hangat
+- 🎤 Kazi - Energik
+- 🍃 Xiaochen - Tenang
 
-### 🔊 6. Text-to-Speech Voice Feedback
-Powered by **Z-AI TTS API**, identified objects are automatically read aloud using a friendly voice (`chuichui` by default). Users can replay, pause, or stop the audio at any time.
+**8. Atur Kecepatan Suara ⚡**
+Slider buat atur kecepatan TTS dari 0.5x (pelan, buat anak kecil) sampai 1.5x (lebih cepat, buat anak yang udah lebih besar).
 
-### 🎙️ 7. Voice Customization (5 Voices)
-Choose from 5 distinct AI-generated voices:
-- 🎈 **Chuichui** — Cute and lively (default)
-- 🌸 **Tongtong** — Soft and gentle
-- 🎩 **Jam** — Deep and warm
-- 🎤 **Kazi** — Energetic
-- 🍃 **Xiaochen** — Calm and clear
+**9. Multi-Bahasa (3 Bahasa) 🌐**
+UI app dan respons AI bisa diganti ke 3 bahasa:
+- English, Bahasa Indonesia, 简体中文
+- Total ada 90+ string yang semuanya diterjemahin
+- Pake sistem i18n custom yang bikinan sendiri
 
-### ⚡ 8. Speech Speed Control
-Adjust TTS playback speed from **0.5x** (slow, for younger kids) to **1.5x** (faster for advanced learners) using an intuitive slider.
+### 👤 Autentikasi & User
 
-### 🌐 9. Multi-Language Support (3 Languages)
-Full UI translation and AI response localization for:
-- 🇬🇧 **English**
-- 🇮🇩 **Bahasa Indonesia**
-- 🇨🇳 **简体中文 (Simplified Chinese)**
+**10. Login & Register 👤**
+Sistem autentikasi pake cookie-based session. Password di-hash pake bcrypt. Ada validasi input, session cookie yang persistent 30 hari. Ngga pake JWT karena masih belajar, cookie aja dulu yang penting aman.
 
-All 90+ UI strings are translated across all 3 languages with parameter interpolation support.
+**11. Guest Mode 🕵️**
+User bisa langsung explore app tanpa register. History disimpan lokal di React state doang. Kalau mau persisten data, diminta register dulu.
 
-### 👤 10. User Authentication System
-Secure cookie-based session authentication with:
-- Email/username + password registration
-- Bcrypt password hashing (10 salt rounds)
-- Session persistence via `kidlearn_session` cookie (30-day expiry, httpOnly, sameSite lax)
+**12. Profil Management 👤**
+User bisa ganti nama tampilan, tema, dan bahasa. Semua preferensi disimpan ke database dan auto-load pas login.
 
-### 🕵️ 11. Guest Mode
-Users can explore the app immediately without creating an account. Guest sessions store history locally in React state and automatically prompt registration for persistent data.
+### 📚 Fitur Belajar
 
-### 📜 12. Discovery History Log
-Every identified object is saved to the database with its image, name, emoji, description, fun fact, and category. Users can browse their last 50 discoveries and clear history at any time.
+**13. Riwayat Discovery 📜**
+Semua objek yang pernah di-scan tersimpan di database. Ada gambarnya, nama, emoji, deskripsi, dll. Bisa di-scroll sampai 50 item terakhir dan ada tombol "Hapus Semua".
 
-### 🏆 13. Achievement System (9 Badges)
-Gamified learning with 9 unlockable achievements:
+**14. Spelling Challenge 🔤**
+Game ejaan! Setelah scan objek, anak disuruh ngetik nama objeknya. Ada hint system, feedback suara kalau bener/salah, dan otomatis unlock achievement "Spelling Bee".
 
-| Badge | Emoji | How to Unlock |
+**15. Quiz Challenge 🧠**
+Kuis pilihan ganda. Gambar objek ditampilin terus ditanya "Apa ini?" dengan 3 opsi jawaban yang di-random. Jawaban bener bakal unlock achievement dan disimpan skornya.
+
+**16. Puzzle Game 🧩**
+Gambar yang di-scan di-split jadi 2x2 potongan puzzle yang di-shuffle. Anak tinggal drag-and-drop ke slot yang bener. Kalau selesai ada feedback suara dan unlock achievement.
+
+**17. AI Chat Buddy 💬**
+Chatbot AI buat anak-anak. Pake model GLM-4-Flash yang lebih cepat dan murah. Bisa multi-turn conversation (ingat 6 pesan terakhir). Bahasa responsnya ngikutin bahasa yang dipilih di settings.
+
+**18. Achievement System 🏆**
+Ada 9 badge yang bisa di-unlock:
+
+| Badge | Emoji | Cara Dapetnya |
 |---|---|---|
-| First Discovery! | 🔍 | Identify your first object |
-| Explorer | 🧭 | Identify 5 different objects |
-| Scientist | 🔬 | Identify 10 different objects |
-| Professor | 🎓 | Identify 20 different objects |
-| Perfect Score! | 💯 | Get a perfect quiz score |
-| Puzzle Master | 🧩 | Complete a puzzle correctly |
-| Spelling Bee | 📝 | Spell an object name correctly |
-| Chatty Kid | 💬 | Send your first chat message |
-| Helper | ⭐ | Submit app feedback |
+| First Discovery | 🔍 | Scan objek pertama |
+| Explorer | 🧭 | Scan 5 objek berbeda |
+| Scientist | 🔬 | Scan 10 objek berbeda |
+| Professor | 🎓 | Scan 20 objek berbeda |
+| Perfect Score | 💯 | Nilai sempurna di kuis |
+| Puzzle Master | 🧩 | Selesain puzzle dengan bener |
+| Spelling Bee | 📝 | Eja nama objek dengan bener |
+| Chatty Kid | 💬 | Kirim pesan chat pertama |
+| Helper | ⭐ | Kasih feedback ke app |
 
-Achievements use idempotent upsert logic — scanning milestones (5, 10, 20 objects) are automatically checked on each identification.
+Milestone scan (5, 10, 20) itu otomatis di-check tiap kali user scan objek baru.
 
-### 🔤 14. Spelling Challenge
-After identifying an object, kids can test their spelling skills by typing the object's name. Features include hint system, real-time TTS feedback for correct/incorrect answers, and automatic achievement unlocking.
+### 🎨 Kustomisasi
 
-### 🧠 15. Quiz Challenge
-A multiple-choice quiz that shows the captured image and asks *"What is in this picture?"* with 3 randomized options. Correct answers trigger achievement unlocking and score tracking.
+**19. Theme System (6 Tema) 🎨**
+Ada 6 tema warna gradient yang bisa dipilih:
+- 🌈 Default (oranye-kuning-hijau)
+- 🌊 Ocean (biru)
+- 🌲 Forest (hijau)
+- 🌅 Sunset (oranye-merah muda)
+- 🌙 Night (gelap-ungu)
+- 🍬 Candy (pink-ungu)
 
-### 🧩 16. Puzzle Game
-The captured image is split into a 2×2 grid of shuffled pieces. Kids drag-and-drop pieces into the correct slots. Completion triggers voice feedback and achievement unlocking.
+**20. User Feedback ⭐**
+User bisa kasih rating bintang 1-5 sama komentar. Otomatis unlock achievement "Helper" pas submit.
 
-### 💬 17. AI Chat Buddy
-A conversational AI assistant powered by **GLM-4-Flash** (fast, cost-effective text model). Features:
-- Child-friendly system prompt with age-appropriate tone
-- Multi-turn conversation context (last 6 messages)
-- Language-aware responses
-- Auto-scroll to latest message
-- First-message achievement unlocking
+**21. Pro Membership 👑**
+Fitur upgrade ke Pro (simulated). Ada loading state, badge display, dan unlock fitur tambahan. Ini masih simulated ya, belum integration payment gateway karena belum sampe materinya 😅
 
-### 🎨 18. Theme Customization (6 Themes)
-Six visually distinct gradient themes that change the entire app's color scheme:
+### 📱 UI & UX
 
-| Theme | Emoji | Style |
-|---|---|---|
-| Default | 🌈 | Orange → Yellow → Green |
-| Ocean | 🌊 | Blue → Cyan → Teal |
-| Forest | 🌲 | Green → Emerald → Lime |
-| Sunset | 🌅 | Orange → Rose → Pink |
-| Night | 🌙 | Slate → Indigo → Purple |
-| Candy | 🍬 | Pink → Fuchsia → Violet |
+**22. Responsive Design 📱**
+Mobile-first design pake Tailwind CSS 4. Layout auto adapt dari HP ke desktop. Touch target minimum 44px biar gampang buat anak-anak.
 
-### 👤 19. Profile Management
-Users can view and update their profile settings including display name, preferred theme, and language. All preferences are persisted to the database and restored on login.
+**23. Animasi (Framer Motion) 🎭**
+Ada beberapa animasi biar app keliatan lebih hidup:
+- Maskot melayang di halaman login
+- Logo bergoyang di header
+- Loading spinner pas proses kamera dan AI
+- Transisi slide di halaman auth
 
-### ⭐ 20. User Feedback System
-A built-in feedback mechanism where users can rate the app (1-5 stars) and leave a comment. Submitting feedback automatically unlocks the "Helper" achievement.
+**24. Safe Content 🔒**
+Semua respons AI diatur supaya aman buat anak:
+- Kosakata level anak 4 tahun
+- Batas kata: deskripsi max 40 kata, fakta menarik max 30 kata
+- Nada hangat dan encouraging
+- Prompt diatur strict supaya nggak ada konten yang nggak pantas
 
-### 👑 21. Pro Membership Upgrade
-A simulated Pro membership upgrade that unlocks additional voices, themes, and features. The upgrade flow includes loading state, user state update, and achievement recognition.
-
-### 📱 22. Responsive Mobile-First Design
-Built with a mobile-first approach using Tailwind CSS 4 breakpoints (`sm:`, `md:`, `lg:`, `xl:`). The layout adapts seamlessly from small phones to large desktops with appropriate touch target sizes (minimum 44px).
-
-### 🎭 23. Animated UI (Framer Motion)
-Smooth, engaging animations throughout the app:
-- Floating mascot animation on auth screen
-- Wiggling header logo
-- Loading spinners for camera and AI processing
-- Fade/slide transitions for auth screens
-- Page content transitions via AnimatePresence
-
-### 🔒 24. Safe Content for Kids
-All AI responses are generated with strict child-safety guidelines:
-- Age-appropriate vocabulary (4-year-old reading level)
-- Word count limits (description: 40 words, fun fact: 30 words)
-- Warm, encouraging tone
-- No harmful or inappropriate content
-
-### 💾 25. Persistent Data Storage
-SQLite database managed by Prisma ORM with 5 interconnected models:
-- **User** — Accounts, preferences, Pro status
-- **HistoryItem** — Discovery records with images
-- **Achievement** — Unlocked badges
-- **Feedback** — User ratings and comments
-- **QuizScore** — Quiz performance records
+**25. Database SQLite 💾**
+Pake Prisma ORM dengan SQLite. Ada 5 model yang saling relate: User, HistoryItem, Achievement, Feedback, QuizScore. Dipilih SQLite karena nggak perlu setup server database terpisah, jadi lebih gampang buat development dan demo.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Category | Technology | Purpose |
-|---|---|---|
-| **Framework** | Next.js 16 (App Router) | Full-stack React framework |
-| **Language** | TypeScript 5 | Type-safe development |
-| **Styling** | Tailwind CSS 4 | Utility-first CSS |
-| **UI Library** | shadcn/ui (New York) | Pre-built accessible components |
-| **Icons** | Lucide React | Consistent icon set |
-| **Animation** | Framer Motion | Smooth UI animations |
-| **Database** | SQLite (via Prisma ORM) | Persistent data storage |
-| **Authentication** | Cookie-based sessions (bcryptjs) | User auth & security |
-| **AI Vision** | Z-AI SDK → GLM-4V-Plus | Object identification |
-| **AI Text** | Z-AI SDK → GLM-4-Flash | Chat assistant |
-| **Text-to-Speech** | Z-AI SDK → TTS API | Voice feedback |
-| **State** | React useState/useRef | Client-side state management |
-| **Package Manager** | Bun | Fast dependency management |
+Ini tech stack yang dipake di project ini:
+
+| Tech | Buat Apa |
+|---|---|
+| **Next.js 16** (App Router) | Framework utama, full-stack React |
+| **TypeScript 5** | Biar strict, nggak banyak bug di runtime |
+| **Tailwind CSS 4** | Styling, utility-first CSS |
+| **shadcn/ui** | Komponen UI yang udah jadi (button, card, dialog, dll) |
+| **Framer Motion** | Animasi |
+| **Prisma ORM** | Database management |
+| **SQLite** | Database lokal (nggak perlu server terpisah) |
+| **bcryptjs** | Hashing password |
+| **Z-AI SDK** | AI Vision (GLM-4V-Plus), AI Chat (GLM-4-Flash), TTS |
+| **Lucide React** | Icons |
+| **Bun** | Package manager (lebih cepat dari npm) |
 
 ---
 
-## 🏗 Architecture
+## 🏗 Arsitektur (Gambaran Besar)
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                    Client (React)                    │
-│  ┌─────────┐ ┌──────────┐ ┌────────┐ ┌───────────┐ │
-│  │ Camera  │ │ Upload   │ │ Games  │ │   Chat    │ │
-│  │ Module  │ │ Module   │ │ Module │ │  Module   │ │
-│  └────┬────┘ └────┬─────┘ └───┬────┘ └─────┬─────┘ │
-│       │           │           │             │        │
-│  ┌────┴───────────┴───────────┴─────────────┴─────┐ │
-│  │          API Routes (Next.js App Router)        │ │
-│  └────┬────────┬────────┬────────┬───────┬────────┘ │
-├───────┼────────┼────────┼────────┼───────┼──────────┤
-│       │        │        │        │       │          │
-│  ┌────┴───┐ ┌──┴──┐ ┌──┴──┐ ┌──┴───┐ ┌┴────┐    │
-│  │/identify│ │/speak│ │/chat│ │/auth │ │/quiz│    │
-│  │(VLM API)│ │(TTS) │ │(LLM)│ │(Sess)│ │      │    │
-│  └────┬───┘ └──┬──┘ └──┬──┘ └──┬───┘ └──┬───┘    │
-│       │        │       │       │        │          │
-│  ┌────┴────────┴───────┴───────┴────────┴──────┐  │
-│  │         Z-AI Web Dev SDK                    │  │
-│  │   (GLM-4V-Plus · GLM-4-Flash · TTS)        │  │
-│  └─────────────────────────────────────────────┘  │
-│                                                     │
-│  ┌─────────────────────────────────────────────┐  │
-│  │         SQLite Database (Prisma)            │  │
-│  │  User · HistoryItem · Achievement           │  │
-│  │  Feedback · QuizScore                       │  │
-│  └─────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│              Frontend (React)                │
+│                                              │
+│  Kamera ──┐                                  │
+│  Upload ──┤──→ API Routes ──→ Z-AI SDK      │
+│  Games  ──┤      (Next.js)    (GLM-4V-Plus) │
+│  Chat   ──┘         │            (GLM-4-Flash)│
+│                     │              (TTS)      │
+│                     ▼                         │
+│              SQLite (Prisma)                 │
+│         User, History, Achievement, etc      │
+└─────────────────────────────────────────────┘
 ```
+
+Jadi alurnya gini:
+1. User buka app → frontend render
+2. User foto/upload gambar → kirim ke `/api/identify`
+3. API panggil Z-AI SDK (GLM-4V-Plus) buat ngenali objek
+4. Hasilnya dikirim balik ke frontend, ditampilin di UI
+5. Auto-panggil `/api/speak` buat TTS, suara di-play
+6. Kalau user login, hasilnya disimpan ke database via `/api/history`
 
 ---
 
-## ⚙️ Setup & Installation
+## ⚙️ Cara Install & Jalankan
 
 ### Prerequisites
+- Bun (atau Node.js) - [install Bun di sini](https://bun.sh/)
+- Z-AI API Key (udah dikonfigurasi di `.z-ai-config`)
 
-- **Bun** (v1.0+) — [Install Bun](https://bun.sh/)
-- **Node.js** (v18+) — Optional, if not using Bun
-- **Z-AI API Key** — Configured in `.z-ai-config`
-
-### Installation
+### Langkah-langkah
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/whats-this.git
+# 1. Clone repository
+git clone https://github.com/username/whats-this.git
+
+# 2. Masuk ke folder project
 cd whats-this
 
-# Install dependencies
+# 3. Install dependencies
 bun install
 
-# Push database schema
+# 4. Setup database
 bun run db:push
 
-# Start development server
+# 5. Jalankan development server
 bun run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+Buka `http://localhost:3000` di browser.
 
 ### Environment Variables
 
-| Variable | Description | Required |
+| Variable | Keterangan | Wajib? |
 |---|---|---|
-| `DATABASE_URL` | SQLite connection string | Yes |
-| `VISION_MODEL` | VLM model name (default: `glm-4v-plus`) | No |
+| `DATABASE_URL` | Koneksi SQLite | Ya |
+| `VISION_MODEL` | Model VLM (default: glm-4v-plus) | Nggak |
 
 ---
 
-## 📂 Project Structure
+## 📂 Struktur Folder
 
 ```
 whats-this/
 ├── prisma/
-│   ├── schema.prisma          # Database schema (5 models)
-│   └── dev.db                 # SQLite database file
+│   ├── schema.prisma       ← Schema database (5 model)
+│   └── dev.db              ← File database SQLite
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx           # Main frontend (~1200+ lines)
-│   │   ├── layout.tsx         # Root layout & metadata
+│   │   ├── page.tsx        ← Frontend utama (~1200 baris)
+│   │   ├── layout.tsx      ← Root layout + metadata
 │   │   └── api/
-│   │       ├── identify/route.ts    # VLM image recognition
-│   │       ├── speak/route.ts       # TTS voice synthesis
-│   │       ├── chat/route.ts        # AI chat assistant
-│   │       ├── auth/
-│   │       │   ├── register/route.ts # User registration
-│   │       │   ├── login/route.ts    # User login
-│   │       │   ├── logout/route.ts   # User logout
-│   │       │   ├── me/route.ts       # Session check
-│   │       │   ├── update/route.ts   # Profile update
-│   │       │   └── upgrade/route.ts  # Pro upgrade
-│   │       ├── history/route.ts      # Discovery history CRUD
-│   │       ├── achievements/route.ts # Achievement system
-│   │       ├── feedback/route.ts     # User feedback
-│   │       └── quiz/route.ts         # Quiz scoring
-│   ├── components/ui/           # shadcn/ui components
+│   │       ├── identify/   ← API buat ngenali objek (VLM)
+│   │       ├── speak/      ← API buat text-to-speech
+│   │       ├── chat/       ← API buat AI chat
+│   │       ├── auth/       ← Login, register, logout, dll
+│   │       ├── history/    ← CRUD riwayat discovery
+│   │       ├── achievements/ ← Sistem achievement
+│   │       ├── feedback/   ← Feedback user
+│   │       └── quiz/       ← Skor kuis
+│   ├── components/ui/      ← Komponen shadcn/ui
 │   └── lib/
-│       ├── i18n.ts             # i18n system (90+ keys × 3 langs)
-│       ├── auth.ts             # Auth helper functions
-│       └── db.ts               # Prisma client singleton
-├── public/                     # Static assets
+│       ├── i18n.ts         ← Sistem multi-bahasa
+│       ├── auth.ts         ← Helper autentikasi
+│       └── db.ts           ← Koneksi Prisma
 ├── package.json
-├── README.md                   # This file
-└── worklog.md                  # Development work log
+└── README.md               ← Ini file yang lagi kamu baca :)
 ```
 
 ---
 
-## 📅 Development Timeline
+## 📅 Timeline Pengembangan
 
-> **Start Date: 5 April 2026 · Final Release: 6 June 2026**
-> Total development span: **5 April 2026 — 6 June 2026** (63 hari)
+> **Mulai: 5 April 2026 · Selesai: 6 Juni 2026**
+> Total: 63 hari (±9 minggu)
 
-### 📊 Gantt Chart Overview
+### Phase 1: Foundation & Core AI (5 Apr - 18 Apr 2026)
+*Backend & infrastruktur dasar - minggu pertama paling berat karena harus setup semuanya dari nol*
 
-```
-Feature                                       Apr 2026                 May 2026                 Jun 2026
-                                              W1 W2 W3 W4               W1 W2 W3 W4               W1
-─────────────────────────────────────────────────────────────────────────────────────────────────────
- Phase 1: Foundation & Core AI
-  1. AI Object Recognition                 ██
-  2. Real-Time Camera                       ██
-  3. Image Upload                             ██
-  4. TTS Voice Feedback                       ██
-  5. Responsive UI Layout                   ██████
+| # | Fitur | Mulai | Selesai | Durasi | Status |
+|---|---|:---:|:---:|:---:|:---:|
+| 1 | AI Object Recognition | 5 Apr | 10 Apr | 6 hari | ✅ |
+| 2 | Real-Time Camera | 7 Apr | 12 Apr | 6 hari | ✅ |
+| 3 | Image Upload | 11 Apr | 14 Apr | 4 hari | ✅ |
+| 4 | TTS Voice Feedback | 12 Apr | 16 Apr | 5 hari | ✅ |
+| 5 | Responsive UI Layout | 5 Apr | 18 Apr | 14 hari | ✅ |
 
- Phase 2: Data & Authentication
-  6. Database Schema                         ██
-  7. User Registration                         ██
-  8. User Login                                ██
-  9. Guest Mode                                  ██
- 10. Profile Management                            ██
+🎯 **Milestone:** Pipeline AI sudah jalan end-to-end (Kamera → AI → Suara → UI)
 
- Phase 3: Learning Features
- 11. Discovery History                                ██
- 12. Spelling Challenge                                 ██
- 13. Quiz Challenge                                      ██
- 14. AI Chat Buddy                                         ██
- 15. Achievement System                                     ██
+### Phase 2: Database & Autentikasi (12 Apr - 2 Mei 2026)
+*Minggu ini fokus ke backend, setup database dan bikin sistem login*
 
- Phase 4: Polish & Customization
- 16. Multi-Language i18n                                      ██
- 17. Theme System                                                ██
- 18. Voice Customization                                           ██
- 19. Camera Switch & Rotation                                       ██
- 20. User Feedback                                                    ██
+| # | Fitur | Mulai | Selesai | Durasi | Status |
+|---|---|:---:|:---:|:---:|:---:|
+| 6 | Database Schema (Prisma) | 12 Apr | 18 Apr | 7 hari | ✅ |
+| 7 | Register | 19 Apr | 25 Apr | 7 hari | ✅ |
+| 8 | Login | 22 Apr | 27 Apr | 6 hari | ✅ |
+| 9 | Guest Mode | 26 Apr | 30 Apr | 5 hari | ✅ |
+| 10 | Profile Management | 29 Apr | 2 Mei | 4 hari | ✅ |
 
- Phase 5: Enhancement & Gamification
- 21. Puzzle Game                                                       ██
- 22. Pro Membership                                                      ██
- 23. UI Animations                                                         ██
- 24. Safe Content System                                                    ██
- 25. Bug Fixes & Optimization                                               ██
-─────────────────────────────────────────────────────────────────────────────────────────────────────
-                                              ↑                                                               ↑
-                                         5 Apr 2026                                                      6 Jun 2026
-```
+🎯 **Milestone:** Database dan auth berfungsi, user bisa daftar-login
 
----
+### Phase 3: Fitur Belajar Interaktif (2 Mei - 16 Mei 2026)
+*Bagian paling seru! Bikin game-game belajar dan AI chat*
 
-### 🏗️ Phase 1: Foundation & Core AI
-**5 Apr 2026 — 18 Apr 2026** (14 hari) · Backend & Core Infrastructure
+| # | Fitur | Mulai | Selesai | Durasi | Status |
+|---|---|:---:|:---:|:---:|:---:|
+| 11 | Riwayat Discovery | 2 Mei | 6 Mei | 5 hari | ✅ |
+| 12 | Spelling Challenge | 5 Mei | 9 Mei | 5 hari | ✅ |
+| 13 | Quiz Challenge | 8 Mei | 13 Mei | 6 hari | ✅ |
+| 14 | AI Chat Buddy | 10 Mei | 16 Mei | 7 hari | ✅ |
+| 15 | Achievement System | 13 Mei | 16 Mei | 4 hari | ✅ |
 
-| # | Feature | Start | End | Durasi | Status | Deskripsi |
-|---|---|:---:|:---:|:---:|:---:|---|
-| 1 | **AI Object Recognition** | 5 Apr | 10 Apr | 6 hari | ✅ Selesai | Integrasi VLM dengan model GLM-4V-Plus, prompt engineering ramah anak, parsing respons JSON terstruktur dengan fallback |
-| 2 | **Real-Time Camera** | 7 Apr | 12 Apr | 6 hari | ✅ Selesai | Integrasi kamera WebRTC dengan deteksi kamera depan/belakang, auto-play, loading states |
-| 3 | **Image Upload** | 11 Apr | 14 Apr | 4 hari | ✅ Selesai | File input fallback untuk environment sandbox/terbatas, deteksi kamera otomatis |
-| 4 | **TTS Voice Feedback** | 12 Apr | 16 Apr | 5 hari | ✅ Selesai | Integrasi Z-AI TTS API, streaming audio WAV, auto-play saat identifikasi, kontrol play/stop |
-| 5 | **Responsive UI Layout** | 5 Apr | 18 Apr | 14 hari | ✅ Selesai | Desain responsive mobile-first, maskot animasi, header gradient, navigasi tab |
+🎯 **Milestone:** Semua fitur belajar udah bisa dipake
 
-**Milestone 1** 🎯: Core AI pipeline berfungsi end-to-end *(Kamera → VLM → TTS → UI)* — **18 Apr 2026**
+### Phase 4: Polish & Kustomisasi (16 Mei - 30 Mei 2026)
+*Week ini lebih ke beautification, bikin app keliatan lebih profesional*
 
----
+| # | Fitur | Mulai | Selesai | Durasi | Status |
+|---|---|:---:|:---:|:---:|:---:|
+| 16 | Multi-Bahasa (i18n) | 16 Mei | 20 Mei | 5 hari | ✅ |
+| 17 | Theme System (6 tema) | 18 Mei | 23 Mei | 6 hari | ✅ |
+| 18 | Voice Customization | 20 Mei | 25 Mei | 6 hari | ✅ |
+| 19 | Camera Switch & Rotate | 23 Mei | 27 Mei | 5 hari | ✅ |
+| 20 | User Feedback | 25 Mei | 30 Mei | 6 hari | ✅ |
 
-### 🗄️ Phase 2: Data & Authentication
-**12 Apr 2026 — 2 Mei 2026** (21 hari) · Database & User Management
+🎯 **Milestone:** App sudah multi-bahasa dan customizable
 
-| # | Feature | Start | End | Durasi | Status | Deskripsi |
-|---|---|:---:|:---:|:---:|:---:|---|
-| 6 | **Database Schema** | 12 Apr | 18 Apr | 7 hari | ✅ Selesai | Skema Prisma ORM dengan 5 model (User, HistoryItem, Achievement, Feedback, QuizScore), backend SQLite |
-| 7 | **User Registration** | 19 Apr | 25 Apr | 7 hari | ✅ Selesai | Pendaftaran email + username, hashing password bcrypt, validasi input, pembuatan session cookie |
-| 8 | **User Login** | 22 Apr | 27 Apr | 6 hari | ✅ Selesai | Login email atau username, verifikasi password, restorasi session, penanganan error |
-| 9 | **Guest Mode** | 26 Apr | 30 Apr | 5 hari | ✅ Selesai | Akses langsung tanpa registrasi, history state lokal, prompt upgrade ke akun |
-| 10 | **Profile Management** | 29 Apr | 2 Mei | 4 hari | ✅ Selesai | Update nama tampilan, tema, dan preferensi bahasa dengan persistensi database |
+### Phase 5: Finalisasi (23 Mei - 6 Jun 2026)
+*Bug fixing, optimasi, dan persiapan submit*
 
-**Milestone 2** 🎯: Sistem autentikasi & database berfungsi penuh — **2 Mei 2026**
+| # | Fitur | Mulai | Selesai | Durasi | Status |
+|---|---|:---:|:---:|:---:|:---:|
+| 21 | Puzzle Game | 27 Mei | 31 Mei | 5 hari | ✅ |
+| 22 | Pro Membership | 30 Mei | 2 Jun | 4 hari | ✅ |
+| 23 | UI Animations | 1 Jun | 3 Jun | 3 hari | ✅ |
+| 24 | Safe Content System | 2 Jun | 4 Jun | 3 hari | ✅ |
+| 25 | Bug Fixes & QA | 3 Jun | 6 Jun | 4 hari | ✅ |
 
----
+🎯 **FINAL RELEASE** - Semua fitur selesai! 🎉
 
-### 📚 Phase 3: Learning Features
-**2 Mei 2026 — 16 Mei 2026** (15 hari) · Fitur Belajar Interaktif
+### Ringkasan Timeline
 
-| # | Feature | Start | End | Durasi | Status | Deskripsi |
-|---|---|:---:|:---:|:---:|:---:|---|
-| 11 | **Discovery History** | 2 Mei | 6 Mei | 5 hari | ✅ Selesai | Penyimpanan persisten objek teridentifikasi beserta gambar, batas 50 item, fungsi hapus semua |
-| 12 | **Spelling Challenge** | 5 Mei | 9 Mei | 5 hari | ✅ Selesai | Game ejaan pasca-identifikasi, sistem petunjuk, feedback TTS untuk benar/salah, tracking pencapaian |
-| 13 | **Quiz Challenge** | 8 Mei | 13 Mei | 6 hari | ✅ Selesai | Kuis pilihan ganda bergambar dengan 3 opsi acak, tracking skor, unlock pencapaian |
-| 14 | **AI Chat Buddy** | 10 Mei | 16 Mei | 7 hari | ✅ Selesai | AI percakapan multi-turn dengan GLM-4-Flash, respons bahasa-aware, auto-scroll |
-| 15 | **Achievement System** | 13 Mei | 16 Mei | 4 hari | ✅ Selesai | 9 jenis badge dengan upsert idempoten, deteksi milestone scan otomatis (5/10/20), tampilan profil |
-
-**Milestone 3** 🎯: Semua fitur belajar interaktif berfungsi *(History, Spelling, Quiz, Chat, Achievements)* — **16 Mei 2026**
+| Fase | Periode | Durasi | Fitur |
+|---|---|:---:|:---:|
+| Phase 1: Core AI | 5 Apr - 18 Apr | 14 hari | 5 fitur |
+| Phase 2: Auth & DB | 12 Apr - 2 Mei | 21 hari | 5 fitur |
+| Phase 3: Learning | 2 Mei - 16 Mei | 15 hari | 5 fitur |
+| Phase 4: Polish | 16 Mei - 30 Mei | 15 hari | 5 fitur |
+| Phase 5: Finalisasi | 23 Mei - 6 Jun | 14 hari | 5 fitur |
+| **Total** | **5 Apr - 6 Jun** | **63 hari** | **25 fitur** |
 
 ---
 
-### 🎨 Phase 4: Polish & Customization
-**16 Mei 2026 — 30 Mei 2026** (15 hari) · Kustomisasi & Pelokalan
+## 📊 Statistik Project
 
-| # | Feature | Start | End | Durasi | Status | Deskripsi |
-|---|---|:---:|:---:|:---:|:---:|---|
-| 16 | **Multi-Language i18n** | 16 Mei | 20 Mei | 5 hari | ✅ Selesai | Sistem terjemahan lengkap dengan 90+ key dalam 3 bahasa (EN/ID/ZH), interpolasi parameter |
-| 17 | **Theme System** | 18 Mei | 23 Mei | 6 hari | ✅ Selesai | 6 tema gradient (Default, Ocean, Forest, Sunset, Night, Candy) dengan seleksi persisten |
-| 18 | **Voice Customization** | 20 Mei | 25 Mei | 6 hari | ✅ Selesai | 5 opsi suara AI dengan slider kecepatan (0.5x–1.5x), penyimpanan preferensi per pengguna |
-| 19 | **Camera Switch & Rotation** | 23 Mei | 27 Mei | 5 hari | ✅ Selesai | Toggle kamera depan/belakang, rotasi gambar 90° dengan transformasi canvas |
-| 20 | **User Feedback** | 25 Mei | 30 Mei | 6 hari | ✅ Selesai | Rating bintang (1-5) + komentar opsional, auto-unlock pencapaian Helper |
-
-**Milestone 4** 🎯: Aplikasi sudah fully-localized & customizable — **30 Mei 2026**
-
----
-
-### 🚀 Phase 5: Enhancement & Gamification
-**23 Mei 2026 — 6 Jun 2026** (14 hari) · Finalisasi & Peluncuran
-
-| # | Feature | Start | End | Durasi | Status | Deskripsi |
-|---|---|:---:|:---:|:---:|:---:|---|
-| 21 | **Puzzle Game** | 27 Mei | 31 Mei | 5 hari | ✅ Selesai | Pemotongan gambar 2×2, drag-and-drop penempatan potongan, deteksi penyelesaian, feedback TTS |
-| 22 | **Pro Membership** | 30 Mei | 2 Jun | 4 hari | ✅ Selesai | Alur upgrade dengan loading state, tampilan badge, unlock fitur tambahan |
-| 23 | **UI Animations** | 1 Jun | 3 Jun | 3 hari | ✅ Selesai | Animasi Framer Motion: maskot melayang, logo bergoyang, loading spinner, transisi auth |
-| 24 | **Safe Content System** | 2 Jun | 4 Jun | 3 hari | ✅ Selesai | Prompt AI ramah anak (level 4 tahun), batas kata, nada hangat/mendorong |
-| 25 | **Bug Fixes & Optimization** | 3 Jun | 6 Jun | 4 hari | ✅ Selesai | Pencegahan infinite loop (identifyingRef), ekstraksi array aman, perbaikan scroll area, error handling API |
-
-**Milestone 5** 🎯 **FINAL RELEASE** — Semua 25 fitur selesai & siap peluncuran — **6 Jun 2026** 🎉
-
----
-
-### 📈 Timeline Summary
-
-```
-  Apr 2026           May 2026                       Jun 2026
-  ┌───────┐    ┌──────────────────────────┐     ┌───────┐
-  │  P1   │    │    P2    │    P3    │ P4  │     │  P5   │
-  │ █████ │    │ ████████ │ ████████ │ ██  │     │ █████ │
-  └───────┘    └──────────────────────────┘     └───────┘
-  5 Apr        12 Apr    2 May    16 May  30 May       6 Jun
-    │             │         │         │       │           │
-    ▼             ▼         ▼         ▼       ▼           ▼
-  [Start]     [DB+Auth] [Learn]   [i18n] [Polish]   [RELEASE]
-```
-
-| Fase | Periode | Durasi | Fitur | Milestone |
-|---|---|:---:|:---:|---|
-| **Phase 1** | 5 Apr — 18 Apr 2026 | 14 hari | 5 fitur | Core AI pipeline berfungsi |
-| **Phase 2** | 12 Apr — 2 Mei 2026 | 21 hari | 5 fitur | Autentikasi & database siap |
-| **Phase 3** | 2 Mei — 16 Mei 2026 | 15 hari | 5 fitur | Fitur belajar interaktif lengkap |
-| **Phase 4** | 16 Mei — 30 Mei 2026 | 15 hari | 5 fitur | Pelokalan & kustomisasi selesai |
-| **Phase 5** | 23 Mei — 6 Jun 2026 | 14 hari | 5 fitur | **🚀 FINAL RELEASE** |
-| **Total** | **5 Apr — 6 Jun 2026** | **63 hari** | **25 fitur** | **5 milestone** |
-
----
-
-## 📊 Summary Statistics
-
-| Metric | Value |
+| | |
 |---|---|
-| **Total Features** | 25 |
-| **API Routes** | 14 |
-| **Database Models** | 5 |
-| **Supported Languages** | 3 |
-| **UI Themes** | 6 |
-| **AI Voices** | 5 |
-| **Achievement Badges** | 9 |
-| **Translation Keys** | 90+ |
-| **Frontend Lines** | ~1,200+ |
-| **Development Start** | 5 April 2026 |
-| **Development End** | 6 June 2026 |
-| **Total Duration** | 63 hari (~9 minggu) |
-| **Development Phases** | 5 |
-| **Milestones** | 5 |
+| Total fitur | 25 |
+| API routes | 14 |
+| Database models | 5 |
+| Bahasa yang didukung | 3 |
+| Tema UI | 6 |
+| Suara AI | 5 |
+| Achievement badge | 9 |
+| Translation keys | 90+ |
+| Baris kode frontend | ~1200+ |
 
 ---
 
 ## 📱 Screenshots
 
-> *Screenshots will be added here. The app features:*
+> *Screenshots akan ditambahkan nanti ya, sementara ini dulu list fitur yang ada di app:*
 
-- **Auth Screen** — Colorful login/register with animated mascot
-- **Camera View** — Live viewfinder with capture button and upload option
-- **Identification Result** — Object name, emoji, description, fun fact with voice playback
-- **Discovery History** — Scrollable log of all identified objects with thumbnails
-- **Spelling Challenge** — Interactive keyboard with hints and TTS feedback
-- **Quiz Game** — Multiple-choice with score tracking
-- **Puzzle Game** — Drag-and-drop image puzzle
-- **AI Chat** — Conversational interface with auto-scroll
-- **Achievement Gallery** — Badge collection with unlock dates
-- **Settings Panel** — Theme, language, voice, and speed customization
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Use TypeScript strict mode
-- Follow existing code style (ESLint + Prettier)
-- Test on mobile devices before submitting
-- Keep AI prompts child-safe and age-appropriate
-- Add translation keys for all new UI text in all 3 languages
+- Halaman Login/Register - warna-warni, ada animasi maskot
+- Kamera View - live viewfinder dengan tombol capture
+- Hasil Identifikasi - nama objek, emoji, deskripsi, fakta menarik + suara
+- Riwayat Discovery - scroll list semua objek yang pernah discan
+- Spelling Challenge - ketik nama objek, ada hint
+- Quiz Game - pilihan ganda dengan skor
+- Puzzle Game - drag-and-drop potongan gambar
+- AI Chat - chatbot buat tanya-jawab
+- Achievement Gallery - koleksi badge
+- Settings - tema, bahasa, suara, kecepatan
 
 ---
 
-## 📄 License
+## ⚠️ Kendala Selama Development
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+Ini beberapa kendala yang aku alami selama bikin project ini (buat bahan eval ya dosen 😄):
+
+1. **Z-AI SDK masih baru** - Dokumentasinya belum lengkap, jadi sering trial error. Ternyata untuk VLM harus pake `createVision()` bukan `create()`, dan TTS nggak butuh field `model`.
+
+2. **Camera di sandbox** - Kamera nggak bisa diakses di beberapa environment, jadi harus bikin fallback ke upload gambar.
+
+3. **Infinite loop** - Pernah ada bug dimana identification berjalan terus tanpa henti. Fixed pake `useRef` sebagai guard.
+
+4. **API response format** - API kadang return object `{ key: [...] }` bukan array langsung, jadi harus handle dengan `Array.isArray()` check.
+
+5. **Multi-bahasa dari nol** - Bikin sistem i18n sendiri tanpa library external. 90+ key diterjemahin manual ke 3 bahasa. Lumayan capek tapi worth it.
+
+---
+
+## 🤝 Cara Kontribusi
+
+Kalau mau bantu develop atau nemu bug:
+
+1. Fork repo ini
+2. Buat branch baru: `git checkout -b fitur-baru`
+3. Commit perubahan: `git commit -m 'Tambah fitur baru'`
+4. Push: `git push origin fitur-baru`
+5. Buat Pull Request
+
+---
+
+## 📄 Lisensi
+
+Project ini dilisensikan under [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for curious kids everywhere**
+**Dibuat buat tugas kuliah semester 4** 😅
 
-Made with Next.js · TypeScript · Tailwind CSS · Z-AI SDK · Framer Motion
+Tapi seriusan, ini project yang cukup challenging dan banyak belajar dari sini.
+Terutama soal AI integration, camera API, dan multi-language support.
+
+Made with Next.js · TypeScript · Tailwind CSS · Z-AI SDK · Prisma
 
 </div>
