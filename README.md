@@ -110,10 +110,10 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 |----|------|-------|---------|--------|--------|
 | 6 | Ganti Kamera (Depan/Belakang) | 12 Apr | 15 Apr | 4 hari | ✅ |
 | 7 | Pilihan Suara AI | 14 Apr | 18 Apr | 5 hari | ✅ |
-| 8 | Pengaturan Kecepatan Suara | 16 Apr | 19 Apr | 4 hari | ✅ |
-| 9 | Register & Login | 19 Apr | 27 Apr | 9 hari | ✅ |
-| 10 | Guest Mode | 27 Apr | 30 Apr | 4 hari | ✅ |
-| 11 | Profil Pengguna | 29 Apr | 2 Mei | 4 hari | ✅ |
+| 8 | Pengaturan Kecepatan Suara | 16 Apr | 19 Apr | 4 hari | ❌ |
+| 9 | Register & Login | 19 Apr | 27 Apr | 9 hari | ❌ |
+| 10 | Guest Mode | 27 Apr | 30 Apr | 4 hari | ❌ |
+| 11 | Profil Pengguna | 29 Apr | 2 Mei | 4 hari | ❌ |
 
 **Milestone:** Database dan autentikasi berfungsi, user bisa daftar dan login
 
@@ -124,11 +124,11 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
 |----|------|-------|---------|--------|--------|
-| 12 | Riwayat Discovery | 2 Mei | 6 Mei | 5 hari | ✅ |
-| 13 | Spelling Challenge | 5 Mei | 10 Mei | 6 hari | ✅ |
-| 14 | Quiz Challenge | 8 Mei | 13 Mei | 6 hari | ✅ |
-| 15 | Puzzle Game | 10 Mei | 15 Mei | 6 hari | ✅ |
-| 16 | AI Chat Buddy | 11 Mei | 16 Mei | 6 hari | ✅ |
+| 12 | Riwayat Discovery | 2 Mei | 6 Mei | 5 hari | ❌ |
+| 13 | Spelling Challenge | 5 Mei | 10 Mei | 6 hari | ❌ |
+| 14 | Quiz Challenge | 8 Mei | 13 Mei | 6 hari | ❌ |
+| 15 | Puzzle Game | 10 Mei | 15 Mei | 6 hari | ❌ |
+| 16 | AI Chat Buddy | 11 Mei | 16 Mei | 6 hari | ❌ |
 
 **Milestone:** Semua fitur belajar dan game interaktif berfungsi
 
@@ -139,10 +139,10 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
 |----|------|-------|---------|--------|--------|
-| 17 | Achievement System | 16 Mei | 21 Mei | 6 hari | ✅ |
-| 18 | Multi-Bahasa | 19 Mei | 24 Mei | 6 hari | ✅ |
-| 19 | 6 Tema Warna | 22 Mei | 26 Mei | 5 hari | ✅ |
-| 20 | User Feedback | 25 Mei | 29 Mei | 5 hari | ✅ |
+| 17 | Achievement System | 16 Mei | 21 Mei | 6 hari | ❌ |
+| 18 | Multi-Bahasa | 19 Mei | 24 Mei | 6 hari | ❌ |
+| 19 | 6 Tema Warna | 22 Mei | 26 Mei | 5 hari | ❌ |
+| 20 | User Feedback | 25 Mei | 29 Mei | 5 hari | ❌ |
 
 **Milestone:** Aplikasi sudah mendukung multi-bahasa dan dapat dikustomisasi
 
@@ -153,9 +153,9 @@ Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan 
 
 | No | Fitur | Mulai | Selesai | Durasi | Status |
 |----|------|-------|---------|--------|--------|
-| 21 | Pro Membership | 30 Mei | 2 Jun | 4 hari | ✅ |
-| 22 | Responsive Mobile-First | 1 Jun | 4 Jun | 4 hari | ✅ |
-| 23 | Bug Fixes & Optimasi | 3 Jun | 6 Jun | 4 hari | ✅ |
+| 21 | Pro Membership | 30 Mei | 2 Jun | 4 hari | ❌ |
+| 22 | Responsive Mobile-First | 1 Jun | 4 Jun | 4 hari | ❌ |
+| 23 | Bug Fixes & Optimasi | 3 Jun | 6 Jun | 4 hari | ❌ |
 
 **Milestone:** 🎉 FINAL RELEASE — Semua 22 fitur selesai dan siap digunakan
 

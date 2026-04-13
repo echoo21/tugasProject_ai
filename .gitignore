@@ -39,6 +39,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+.zscript
 next-env.d.ts
 local-*
 .claude
