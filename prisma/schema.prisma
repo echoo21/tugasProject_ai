@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  username      String        @unique
+  email         String        @unique
+  password      String
+  displayName   String?
+  avatar        String?
+  isPro         Boolean       @default(false)
+  theme         String        @default("default")
+  language      String        @default("en")
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  histories     HistoryItem[]
+  achievements  Achievement[]
+  feedbacks     Feedback[]
+  quizScores    QuizScore[]
+}
+
+model HistoryItem {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  emoji       String
+  description String
+  funFact     String
+  category    String
+  imageData   String
+  nameOptions Json?
+  descriptionOptions Json?
+  funFactOptions Json?
+  createdAt   DateTime @default(now())
+}
+
+model Achievement {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  emoji     String
+  unlockedAt DateTime @default(now())
+
+  @@unique([userId, type])
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+}
+
+model QuizScore {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  score     Int
+  total     Int
+  createdAt DateTime @default(now())
+}
