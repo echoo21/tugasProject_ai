@@ -1,171 +1,198 @@
-# What's This? - AI Object Learning Application
+# What's This?
 
-A web-based educational application designed to help children learn about objects through AI-powered image recognition, interactive games, and voice feedback. Built as a semester project for Artificial Intelligence coursework at semester 4.
+> **Tugas Mata Kuliah Artificial Intelligence — Semester 4**
 
-## Overview
+---
 
-The application allows users to capture or upload images of objects, which are then identified by a Vision Language Model (VLM). The system provides the object name, description, and fun facts in a child-friendly manner. The app includes interactive learning features such as a listen-and-identify game, spelling practice, jigsaw puzzles, and an AI chat assistant. The interface supports English, Indonesian, and Chinese with full internationalization.
+- Richie Hujaya (241110258)
+- Anthony Louis (241110249)
+- Trevan Edgard (241110265)
+- Suryanata Yaptanto (241111143)
 
-## Technology Stack
+## 1. Ide Project
 
-- **Framework**: Next.js 15+ with TypeScript
-- **Styling**: Tailwind CSS 4 with Radix UI components (shadcn/ui)
-- **Database**: SQLite with Prisma ORM
-- **Authentication**: Cookie-based session management with bcryptjs password hashing (10 salt rounds)
-- **AI Integration**: z-ai-web-dev-sdk (GLM models: VLM for vision, glm-4-flash for chat)
-- **State Management**: Zustand
-- **Data Fetching**: TanStack React Query
-- **Drag and Drop**: @dnd-kit for puzzle game
-- **Internationalization**: Custom i18n system with 90+ translation keys across 3 languages
-- **Animations**: Framer Motion
-- **Runtime**: Bun
+**"What's This?"** adalah aplikasi web edukasi interaktif untuk anak-anak yang memanfaatkan teknologi AI (Computer Vision & Browser Text-to-Speech) untuk membantu anak mengenali objek di sekitar mereka.
 
-## Features
+### Latar Belakang
 
-### Core Features
-- Camera capture and image upload for object identification
-- AI-powered image recognition using VLM with child-friendly prompts
-- Text-to-speech voice feedback with adjustable speed and voice selection
-- Listen-and-identify game: listen to the object name and select the correct image
-- Spelling practice: type the name of the identified object
-- Jigsaw puzzle mini-games built with @dnd-kit drag-and-drop
-- AI chat assistant using glm-4-flash with child-friendly system prompts and multi-turn conversation support
+Anak-anak secara alami memiliki rasa ingin tahu yang tinggi terhadap lingkungan sekitar. Mereka sering bertanya *"ini apa?"* saat melihat benda baru. Metode belajar konvensional seperti buku gambar dan kartu flash memiliki keterbatasan — kontennya statis, jumlah terbatas, dan tidak responsif terhadap rasa ingin tahu anak secara real-time.
 
-### User System
-- User registration and login (supports both username and email)
-- Session-based authentication with HTTP-only cookies (30-day expiry)
-- Guest mode with localStorage persistence for achievements and preferences
-- User profiles with customizable display name, avatar, theme, and language preferences
-- Pro user upgrade capability
+### Solusi
 
-### Themes
-Six visual themes available: Default (rainbow), Ocean, Forest, Sunset, Night, and Candy.
+Aplikasi ini mengubah proses belajar menjadi pengalaman yang dinamis:
 
-### Multi-language Support
-- English (en)
-- Indonesian / Bahasa Indonesia (id)
-- Simplified Chinese (zh)
-- Language preference persists in user profile and localStorage (for guests)
-- AI identification and chat responses adapt to selected language
-- Voice TTS messages are translated
-- History items store multi-language options (nameOptions, descriptionOptions, funFactOptions) for seamless language switching
+```
+Anak arahkan kamera ke benda → AI mengenali benda tersebut
+→ App menjelaskan dengan bahasa anak-anak → Browser TTS membacakan penjelasan
+→ Mini-game memperkuat pemahaman
+```
 
-### Gamification
-- Achievement system with 9 achievement types:
-  - `first_scan` - First object identified
-  - `scan_5`, `scan_10`, `scan_20` - Scan milestones (auto-detected)
-  - `quiz_perfect` - Perfect quiz score
-  - `puzzle_complete` - Puzzle completed
-  - `listen_master` - Listen and identify an object correctly
-  - `chat_first` - First chat interaction
-  - `feedback_given` - User feedback submitted
-- Discovery history storing last 50 items with image data
-- Quiz score tracking with score and total questions
-- Quiz question preloading and caching mechanism for smoother gameplay
+Dengan pendekatan ini, anak bisa belajar dari **objek apa saja** kapan saja dan di mana saja, tanpa dibatasi oleh konten statis.
 
-## Project Structure
+### Teknologi Utama
+
+| Teknologi | Fungsi |
+|---|---|
+| Next.js 16 + TypeScript | Framework full-stack |
+| Z-AI SDK (GLM-4V) | AI Vision untuk mengenali objek dari gambar |
+| Z-AI SDK (GLM-4-Flash) | AI Chat untuk menjawab pertanyaan anak |
+| Browser SpeechSynthesis | Text-to-Speech bawaan browser untuk membacakan penjelasan |
+| Tailwind CSS 4 + shadcn/ui | UI/UX responsive dan ramah anak |
+| Prisma + SQLite | Penyimpanan data user, riwayat, dan achievement |
+| Framer Motion | Animasi agar app terasa hidup |
+| @dnd-kit | Drag-and-drop untuk puzzle game |
+
+---
+
+## 2. Fitur-Fitur Penting
+
+### Fitur Inti AI & Kamera
+
+| No | Fitur | Deskripsi |
+|---|---|---|
+| 1 | **AI Object Recognition** | Menggunakan model GLM-4V (VLM) untuk mengenali objek dari foto. AI mengembalikan nama objek, emoji, deskripsi ramah anak, fakta menarik, dan kategori — semua dalam bahasa yang dipilih user. |
+| 2 | **Real-Time Camera** | Integrasi kamera device via WebRTC. Menggunakan `getUserMedia()` dengan resolusi ideal 1280x720. |
+| 3 | **Upload Gambar** | Alternatif saat kamera tidak tersedia, user bisa mengunggah gambar dari galeri perangkat via `<input type="file">`. |
+| 4 | **Ganti Kamera (Depan/Belakang)** | Tombol toggle untuk berpindah antara kamera depan (`user`) dan belakang (`environment`) menggunakan `enumerateDevices()` untuk mendeteksi perangkat video. |
+| 5 | **Rotasi Gambar** | Gambar yang diambil bisa diputar per 90° menggunakan canvas transformation, sehingga orientasi gambar benar sebelum dikirim ke AI. |
+| 6 | **Text-to-Speech (Browser)** | Setiap objek yang berhasil dikenali otomatis dibacakan oleh Browser TTS (`window.speechSynthesis`). Menggunakan bahasa sesuai pilihan user (en-US, id-ID, zh-CN) dengan rate 0.85 dan pitch 1.1. |
+
+### Fitur Autentikasi & User
+
+| No | Fitur | Deskripsi |
+|---|---|---|
+| 7 | **Register & Login** | Sistem autentikasi berbasis cookie session. Password di-hash menggunakan bcryptjs dengan salt rounds 10. Session bertahan 30 hari. User bisa login pakai email atau username. |
+| 8 | **Guest Mode** | User bisa langsung menggunakan aplikasi tanpa mendaftar. Riwayat dan achievement disimpan di localStorage, dan akan dipindahkan jika user memutuskan daftar nanti. |
+| 9 | **Profil Pengguna** | User dapat mengubah nama tampilan, tema warna, dan bahasa. Semua preferensi tersimpan di database dan otomatis dimuat saat login. |
+| 10 | **Pro Membership** | Simulasi upgrade ke akun Pro. Status isPro tersimpan di database dengan badge visual di profil. |
+
+### Fitur Belajar & Game
+
+| No | Fitur | Deskripsi |
+|---|---|---|
+| 11 | **Riwayat Discovery** | Setiap objek yang berhasil dikenali beserta gambar, nama, deskripsi, dan fakta menarik tersimpan di database. User bisa melihat hingga 50 penemuan terakhir, menghapus satu item, atau menghapus semua sekaligus. |
+| 12 | **Listen & Identify Game** | Game dengar-dan-identifikasi: AI membacakan nama objek, lalu anak memilih gambar yang sesuai dari 4 opsi acak. Skor dilacak (benar/salah) dan jawaban benar memicu achievement `listen_master`. |
+| 13 | **Quiz Challenge** | Kuis pilihan ganda yang menampilkan gambar objek dan 3 opsi jawaban. Pertanyaan digenerate oleh AI via `/api/quiz/generate` dengan sistem preloading/caching. Skor disimpan di database dan perfect score membuka achievement. |
+| 14 | **Puzzle Game** | Gambar yang dipindai dipotong menjadi potongan 2x2 yang diacak. Anak menyusun potongan kembali dengan drag-and-drop `@dnd-kit`. Selesai dengan benar memicu feedback suara dan achievement. |
+| 15 | **AI Chat Buddy** | Chatbot AI untuk anak-anak yang didukung model GLM-4-Flash. Mendukung percakapan multi-turn dengan mengingat riwayat chat, dan merespons sesuai bahasa yang dipilih. |
+
+### Fitur Gamifikasi & Kustomisasi
+
+| No | Fitur | Deskripsi |
+|---|---|---|
+| 16 | **Achievement System (9 Badge)** | Sistem pencapaian dengan 9 badge: First Discovery 🔍, Explorer 🧭 (5 scan), Scientist 🔬 (10 scan), Professor 🎓 (20 scan), Perfect Score 💯, Puzzle Master 🧩, Good Listener 👂, Chatty Kid 💬, dan Helper ⭐. Milestone scan (5, 10, 20 objek) dicek otomatis saat unlock achievement. |
+| 17 | **Multi-Bahasa (3 Bahasa)** | Seluruh UI dan respons AI tersedia dalam 3 bahasa: English 🇬🇧, Bahasa Indonesia 🇮🇩, dan 简体中文 🇨🇳. Terdapat 90+ string yang diterjemahkan secara manual. History items menyimpan `nameOptions`, `descriptionOptions`, dan `funFactOptions` dalam bentuk JSON untuk memungkinkan switch bahasa tanpa re-identifikasi. |
+| 18 | **6 Tema Warna** | Tersedia 6 tema gradient: Default 🌈, Ocean 🌊, Forest 🌲, Sunset 🌅, Night 🌙, dan Candy 🍬. Pilihan tema tersimpan per pengguna di database. |
+| 19 | **User Feedback** | User dapat memberikan rating bintang 1–5 beserta komentar opsional via `/api/feedback`. Mengirim feedback otomatis membuka achievement "Helper". |
+| 20 | **Responsive Mobile-First** | Desain dibangun dengan pendekatan mobile-first menggunakan Tailwind CSS 4. Layout menyesuaikan dari HP ke desktop dengan animasi Framer Motion. |
+
+---
+
+## 3. Arsitektur API
+
+| Method | Endpoint | Deskripsi | Auth |
+|--------|----------|-----------|------|
+| POST | `/api/auth/register` | Registrasi user baru dengan bcrypt | Tidak |
+| POST | `/api/auth/login` | Login dengan email atau username | Tidak |
+| POST | `/api/auth/logout` | Hapus cookie session | Tidak |
+| GET | `/api/auth/me` | Cek user yang sedang login | Ya* |
+| PUT | `/api/auth/update` | Update displayName, language, theme | Ya |
+| POST | `/api/auth/upgrade` | Upgrade akun ke Pro | Ya |
+| POST | `/api/identify` | Identifikasi objek dari gambar (VLM) | Ya |
+| POST | `/api/chat` | AI chat dengan multi-turn support | Ya |
+| GET/POST | `/api/achievements` | List achievement / Unlock achievement baru | Ya |
+| POST | `/api/feedback` | Submit rating dan komentar | Ya |
+| GET/DELETE | `/api/history` | Lihat 50 riwayat terakhir / Hapus semua | Ya |
+| DELETE | `/api/history/[id]` | Hapus satu item riwayat | Ya |
+| POST | `/api/quiz` | Simpan skor quiz | Ya |
+| POST | `/api/quiz/generate` | Generate pertanyaan quiz dari riwayat | Ya |
+
+*Return 401 jika tidak terautentikasi.
+
+---
+
+## 4. Database Schema
+
+Menggunakan Prisma ORM dengan SQLite. Terdiri dari 5 model:
+
+- **User**: id, username (unique), email (unique), password (hashed), displayName, avatar, isPro, theme, language, createdAt, updatedAt
+- **HistoryItem**: id, userId (FK), name, emoji, description, funFact, category, imageData, nameOptions (JSON), descriptionOptions (JSON), funFactOptions (JSON), createdAt
+- **Achievement**: id, userId (FK), type, title, emoji, unlockedAt — unique constraint pada (userId, type)
+- **Feedback**: id, userId (FK), rating (1-5), comment, createdAt
+- **QuizScore**: id, userId (FK), score, total, createdAt
+
+---
+
+## 5. Struktur Project
 
 ```
 src/
 ├── app/
 │   ├── api/
 │   │   ├── auth/
-│   │   │   ├── login/route.ts       # User login (email or username)
-│   │   │   ├── register/route.ts    # User registration with bcrypt
-│   │   │   ├── logout/route.ts      # Clear session cookie
-│   │   │   ├── me/route.ts          # Get current user from session
-│   │   │   ├── update/route.ts      # Update profile (displayName, language, theme)
-│   │   │   └── upgrade/route.ts     # Upgrade to Pro
-│   │   ├── identify/route.ts         # VLM image identification (multilingual)
-│   │   ├── chat/route.ts            # AI chat with glm-4-flash (multilingual)
-│   │   ├── achievements/route.ts    # List and unlock achievements
-│   │   ├── feedback/route.ts        # Submit rating and comment
+│   │   │   ├── login/route.ts
+│   │   │   ├── register/route.ts
+│   │   │   ├── logout/route.ts
+│   │   │   ├── me/route.ts
+│   │   │   ├── update/route.ts
+│   │   │   └── upgrade/route.ts
+│   │   ├── identify/route.ts
+│   │   ├── chat/route.ts
+│   │   ├── achievements/route.ts
+│   │   ├── feedback/route.ts
 │   │   ├── history/
-│   │   │   ├── route.ts             # GET (last 50) / DELETE (clear all)
-│   │   │   └── [id]/route.ts        # Delete individual history item
+│   │   │   ├── route.ts
+│   │   │   └── [id]/route.ts
 │   │   ├── quiz/
-│   │   │   ├── route.ts             # Save quiz score
-│   │   │   └── generate/route.ts    # Generate quiz questions
-│   │   └── route.ts                 # Root API route
-│   ├── page.tsx                     # Main application (single-page app with tabs)
-│   ├── layout.tsx                   # Root layout with metadata
-│   └── globals.css                  # Global styles with Tailwind
+│   │   │   ├── route.ts
+│   │   │   └── generate/route.ts
+│   │   └── route.ts
+│   ├── page.tsx
+│   ├── layout.tsx
+│   └── globals.css
 ├── lib/
-│   ├── auth.ts                      # Session helpers (getSession, requireAuth, encode/decode)
-│   ├── db.ts                        # Prisma client instance
-│   ├── i18n.ts                      # i18n system with 90+ keys in 3 languages
-│   ├── zai-queue.ts                 # AI SDK queue management
-│   ├── retry.ts                     # Retry logic for API calls
-│   └── utils.ts                     # Utility functions (cn for class merging)
-├── components/
-│   └── ui/                          # 30+ reusable UI components (shadcn/ui)
+│   ├── auth.ts
+│   ├── db.ts
+│   ├── i18n.ts
+│   ├── zai-queue.ts
+│   ├── retry.ts
+│   └── utils.ts
+├── components/ui/
 └── hooks/
-    ├── use-mobile.ts                 # Mobile device detection
-    └── use-toast.ts                  # Toast notification hook
 ```
 
-## Database Schema
+---
 
-The application uses Prisma with SQLite. The schema includes five models:
+## 6. Cara Menjalankan
 
-- **User**: id, username (unique), email (unique), password (hashed), displayName, avatar, isPro, theme, language, timestamps, and relations to all child models
-- **HistoryItem**: Records each object identification with name, emoji, description, funFact, category, imageData, and multilingual options (nameOptions, descriptionOptions, funFactOptions as JSON), linked to user with cascade delete
-- **Achievement**: Tracks user achievements with type, title, emoji, and unlock timestamp; unique constraint on (userId, type)
-- **Feedback**: Stores user ratings (1-5) and optional comments
-- **QuizScore**: Records quiz performance (score and total questions)
+### Prasyarat
+- Bun runtime atau Node.js 18+
+- SQLite (sudah termasuk via Prisma)
 
-## API Routes
+### Langkah Instalasi
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| POST | `/api/auth/register` | User registration with validation | No |
-| POST | `/api/auth/login` | User login by email or username | No |
-| POST | `/api/auth/logout` | Clear session cookie | No |
-| GET | `/api/auth/me` | Get current user from session | No* |
-| PUT | `/api/auth/update` | Update displayName, language, theme | Yes |
-| POST | `/api/auth/upgrade` | Upgrade account to Pro | Yes |
-| POST | `/api/identify` | Identify object from image (supports language param) | Yes |
-| POST | `/api/chat` | AI chat conversation with history support (multilingual) | Yes |
-| GET/POST | `/api/achievements` | List achievements / Unlock new achievement with milestone detection | Yes |
-| POST | `/api/feedback` | Submit feedback (auto-unlocks feedback_given achievement) | Yes |
-| GET/DELETE | `/api/history` | View last 50 items / Clear all history | Yes |
-| DELETE | `/api/history/[id]` | Delete individual history item | Yes |
-| POST | `/api/quiz` | Save quiz score (auto-unlocks quiz_perfect on perfect score) | Yes |
-| POST | `/api/quiz/generate` | Generate quiz questions from history | Yes |
-
-*Returns 401 if not authenticated.
-
-## Setup and Installation
-
-### Prerequisites
-- Bun runtime (recommended) or Node.js 18+
-- SQLite (included via Prisma)
-
-### Installation Steps
-
-1. Install dependencies:
+1. Install dependensi:
 ```bash
 bun install
 ```
 
-2. Configure environment variables:
-Create a `.env` file in the root directory:
+2. Buat file `.env` di root directory:
 ```
 DATABASE_URL="file:./dev.db"
 Z_AI_API_KEY="your_api_key_here"
 ```
 
-3. Push the database schema:
+3. Push schema database:
 ```bash
 bun run db:push
 ```
 
-4. Run the development server:
+4. Jalankan development server:
 ```bash
 bun run dev
 ```
 
-The application will be available at `http://localhost:3000`.
+Aplikasi akan tersedia di `http://localhost:3000`.
 
 ### Production Build
 
@@ -174,36 +201,10 @@ bun run build
 bun run start
 ```
 
-## Scripts
+---
 
-- `dev` - Start development server on port 3000
-- `build` - Build the application for production with standalone output
-- `start` - Start the production server (standalone mode with logging)
-- `lint` - Run ESLint
-- `db:push` - Push Prisma schema to database
-- `db:generate` - Generate Prisma client
-- `db:migrate` - Run database migrations
-- `db:reset` - Reset the database
+<div align="center">
 
-## Academic Context
+*Dibuat menggunakan Next.js · TypeScript · Tailwind CSS 4 · Z-AI SDK · Prisma*
 
-This project is developed as part of the Artificial Intelligence coursework for the 4th semester. The project demonstrates the integration of multiple AI technologies into a cohesive full-stack web application:
-
-- Vision Language Model (VLM) integration for real-time object recognition from camera captures and image uploads
-- Large Language Model (glm-4-flash) for conversational AI with context-aware multi-turn chat
-- Multilingual AI responses where the VLM and LLM adapt their output based on user language selection
-- Full-stack development with Next.js App Router, TypeScript, and component-based UI architecture
-- Relational database design with Prisma ORM and SQLite, including cascade deletes and unique constraints
-- Cookie-based authentication system with password hashing and session management
-- Custom internationalization system supporting dynamic language switching across UI, AI responses, and stored data
-- Gamification mechanics with event-driven achievement unlocking and milestone auto-detection
-- Drag-and-drop interactions using @dnd-kit for educational puzzle games
-- Guest mode with client-side persistence enabling core features without account registration
-
-## License
-
-This project is developed for academic purposes as part of semester 4 Artificial Intelligence coursework.
-
-## Authors
-
-Semester 4 AI Course - tugasProject_ai
+</div>
