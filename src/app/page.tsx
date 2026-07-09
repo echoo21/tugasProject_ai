@@ -25,7 +25,7 @@ import Confetti from '@/components/Confetti';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import ResultCard from '@/components/ResultCard';
 import ThemeSwatchSwitcher from '@/components/ui/ThemeSwatchSwitcher';
-import { runCycle } from '@/lib/ai';
+import { runCycle } from '@/lib/ai/agent';
 import type { LearningState, PerceptionInput, PlanStep, QuizObject } from '@/lib/ai/types';
 
 // ==================== TYPES ====================
@@ -650,33 +650,6 @@ export default function HomePage() {
     setCapturedImage(null); setCurrentResult(null); setError(null); setImageRotation(0);
   }, []);
 
-  const handleNavigateStep = useCallback((actionId: string) => {
-    switch (actionId) {
-      case 'scan_first_object':
-      case 'scan_animal':
-      case 'scan_food':
-      case 'scan_nature':
-      case 'discover_more':
-        setActiveTab('home');
-        break;
-      case 'take_quiz':
-        setActiveTab('games');
-        setTimeout(() => startQuiz(), 100);
-        break;
-      case 'solve_puzzle':
-        setActiveTab('games');
-        setTimeout(() => startPuzzle(), 100);
-        break;
-      case 'listen_game':
-        setActiveTab('learn');
-        setTimeout(() => startListen(), 100);
-        break;
-      case 'chat_with_ai':
-        setActiveTab('chat');
-        break;
-    }
-  }, [startQuiz, startPuzzle, startListen]);
-
   const resetHistory = async () => {
     if (user?.id !== 'guest') await fetch('/api/history', { method: 'DELETE' });
     setHistory([]);
@@ -880,6 +853,33 @@ export default function HomePage() {
     };
     img.src = image;
   }, [puzzleHistoryItem, activeHistoryItem, capturedImage, history]);
+
+  const handleNavigateStep = useCallback((actionId: string) => {
+    switch (actionId) {
+      case 'scan_first_object':
+      case 'scan_animal':
+      case 'scan_food':
+      case 'scan_nature':
+      case 'discover_more':
+        setActiveTab('home');
+        break;
+      case 'take_quiz':
+        setActiveTab('games');
+        setTimeout(() => startQuiz(), 100);
+        break;
+      case 'solve_puzzle':
+        setActiveTab('games');
+        setTimeout(() => startPuzzle(), 100);
+        break;
+      case 'listen_game':
+        setActiveTab('learn');
+        setTimeout(() => startListen(), 100);
+        break;
+      case 'chat_with_ai':
+        setActiveTab('chat');
+        break;
+    }
+  }, [startQuiz, startPuzzle, startListen]);
 
   const placePiece = (idx: number) => {
     if (selectedPiece === null) return;
