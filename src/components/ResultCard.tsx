@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Volume2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useTranslation } from '@/lib/i18n';
-import type { IdentifyResult } from '@/lib/helpers';
+import type { IdentifyResult, InferredFact } from '@/lib/helpers';
 import type { ThemeConfig } from '@/lib/themes';
 import { staggerContainer, staggerItem, emojiBounce, contentReveal } from '@/lib/animation';
 
@@ -20,6 +20,7 @@ interface ResultCardProps {
   getFactInLang: (item: IdentifyResult, lang: string) => string;
   sectionAccent?: { hex: string; rgb: string; gradient: string };
   themeData?: ThemeConfig;
+  inferredFacts?: InferredFact[];
 }
 
 export default function ResultCard({
@@ -33,6 +34,7 @@ export default function ResultCard({
   getFactInLang,
   sectionAccent,
   themeData,
+  inferredFacts,
 }: ResultCardProps) {
   const { t } = useTranslation(language);
   const [showBack, setShowBack] = useState(true);
@@ -192,6 +194,31 @@ export default function ResultCard({
                       {getFactInLang(result, language)}
                     </p>
                   </motion.div>
+
+                  {/* Inference Badges from Knowledge Base */}
+                  {inferredFacts && inferredFacts.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex flex-wrap justify-center gap-2 mb-4"
+                    >
+                      {inferredFacts.map((fact: InferredFact, i: number) => (
+                        <div
+                          key={i}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium shadow-sm cursor-help"
+                          style={{
+                            background: `${activeColor}15`,
+                            color: activeColor,
+                            border: `1px solid ${activeColor}30`,
+                          }}
+                          title={fact.derivation}
+                        >
+                          <span>{fact.emoji}</span>
+                          <span>{fact.label}</span>
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
 
                   {/* Action Buttons */}
                   <motion.div variants={contentReveal} className="flex justify-center gap-3 flex-wrap">
